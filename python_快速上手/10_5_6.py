@@ -1,0 +1,7 @@
+print('first')
+first=input()
+print('sec')
+sec=input() 
+print('thr')
+thr=input()
+print('sum',first+sec+thr)
