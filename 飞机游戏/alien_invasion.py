@@ -21,7 +21,8 @@ def run_game():
     '''开始游戏的主循环'''
     while True:#绘制一个空屏幕，擦去旧屏幕
         '''game_function完成大部分工作，而不是run_game'''
-        gf.check_events()
+        gf.check_events(ship)#检查键盘输入
+        ship.update()#更新飞船位置
         gf.update_screen(ai_settings,screen,ship)
         '''监视鼠标和键盘时间'''
         for event in pygame.event.get():#pygame检测到的事件
