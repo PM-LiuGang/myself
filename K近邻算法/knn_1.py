@@ -25,10 +25,10 @@ def createdataset():
 
 def classify0(inx,dataset,labels,k):
     '''
-    :param inx 用于分类的输入向量 
-    :param dataset 输入的训练样本集
-    :param labels 标签向量
-    :param k 最近邻居的数目
+    param inx 用于分类的输入向量 
+    param dataset 输入的训练样本集
+    param labels 标签向量
+    param k 最近邻居的数目
     '''
     datasetsize = dataset.shape[0]
     #np.tile Construct an array by repeating A the number of times given by reps
