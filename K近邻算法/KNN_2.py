@@ -82,3 +82,4 @@ pyplt = py.offline.plot
 #也同样可以color = np.array定义不同标签的颜色
 trace0 = go.Scatter(x=d1[:,0],y=d1[:,1],mode='markers',name='scatters',marker = dict(color=np.array(l1)))
 pyplt([trace0],filename = 'scatters.html')
+#111
