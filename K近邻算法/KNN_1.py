@@ -8,6 +8,8 @@ Author: pm.liugang
 """
 import numpy as np
 import operator
+import os 
+cur_dir = os.getcwd()
 from sklearn.preprocessing import MinMaxScaler
 
 
@@ -150,6 +152,7 @@ def classify_person():
         input('Percentage of time spend playing video games?'))
     ffmlies = float(input('Frequent flier miles earned per year?'))
     icecream = float(input('liters of ice cream consumed per year?'))
+<<<<<<< HEAD
     # 读数据
     dating_data_mat, dating_labels = file2matrix('datingTestSet2_1.txt')
     # 数据归一化
@@ -161,3 +164,78 @@ def classify_person():
 
     print('You wii probably like this person: ',
           result_list[classifier_result - 1])
+=======
+    #读数据
+    dating_data_mat,dating_labels = file2matrix('datingTestSet2_1.txt')
+    #数据归一化
+    norm_mat,ranges,minvale = auto_norm(dating_data_mat)
+    in_arr = np.array([ffmlies,precenttacts,icecream])
+    #分类
+    classifier_result = classify0(in_arr-minvale/ranges,norm_mat,dating_labels,3)
+    
+    print('You wii probably like this person: ',result_list[classifier_result - 1])
+ 
+'''
+示例：手写识别系统
+1.收集数据，提供文本文件
+2 准备数据，编写函数img2vector，将图像格式转换为分类器使用的向量格式
+3 分析数据，在python命令提示符中检查数据，确保它符合要求
+4 训练数据，此步骤不使用于K 近邻算法
+5 测试算法，编写函数使用提供的部分数据集作为测试样本，测试样本与非测试样本的区别在于测试样本是否已经完成
+          分类数据，如果预测分类与实际类别不同，则标记一个错误
+6 使用算法，没完成
+
+数据集描述：
+trainingdigits 包含大约2000个例子，每个数字大约200个样本 训练分类器
+testDigits 包含大约900个例子测试分类器的效果
+os.getcwd() + '\\path1\\path1_1\\path1_1_1\\'
+'''
+
+def img2vetor(filename):
+    '''
+    param 文件名称
+    return 1行1024列的向量
+    '''
+    returnVet = np.zeros((1,1024))#1行1024列
+    fr = open(filename)
+    for i in range(32):
+        lineStr = fr.readline()
+        for j in range(32):
+            #[0,1,2,3,4,5...31,
+            #32,33,34.......
+            #62,63,64......]
+            returnVet[0,32*i+j] = int(lineStr[j])
+    return returnVet
+
+def handwritingClassTest():
+    hwLabels = []
+    trainingFileList = os.listdir(cur_dir +'\\digits\\trainingDigits')#可以从当前目录直接开始写路径
+    m = len(trainingFileList)#1934 行数
+    trainningMat = np.zeros((m,1024))
+    # 生成与 行个数 相等的 向量
+    for i in range(m): # 遍历行数
+        fileNameStr = trainingFileList[i] # 0_0.txt,0_1.txt,0_2.txt....
+        fileStr = fileNameStr.split('.')[0] # 0_0,0_1,0_2....
+        classNumStr = int(fileStr.split('_')[0]) # 取 0_0 前的 0
+        hwLabels.append(classNumStr) # 所有文件名称的一个汇总
+        # 逐行遍历，转换成向量
+        trainningMat[i,:] = img2vetor(cur_dir +'\\digits\\trainingDigits\\%s' % fileNameStr)
+    testFileList = os.listdir(cur_dir +'\\digits\\testDigits')
+    errorCount = 0.0
+    mTest = len(testFileList) # 测试集的文件长度
+    
+    for i in range(mTest):
+        fileNameStr = testFileList[i]
+        fileStr = fileNameStr.split('.')[0]
+        classNumStr = int(fileStr.split('_')[0]) # 真实的分类就是文件名称’_‘前面的数字
+        # 转换文件中第一行数据为向量
+        vectorUnderTest = img2vetor(cur_dir +'\\digits\\testDigits\\%s' % fileNameStr)
+        # 对测试集进行分类
+        classifierResult = classify0(vectorUnderTest,trainningMat,hwLabels,3)
+        print('The Classifier came back with: %d,the real answer is:%d' % \
+              (classifierResult,classNumStr))
+        if classifierResult != classNumStr:
+            errorCount += 1.0
+    print('\nThe total number of errors is: %d '% errorCount)
+    print('\nThe total error rate is: %f'% (errorCount/float(mTest)))
+>>>>>>> 15d53ad347519cc2829e2b0fc68324922a1b7eb1
