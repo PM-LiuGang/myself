@@ -1,16 +1,8 @@
 # -*- coding: utf-8 -*-
-# 决策树的常用流程
-'''
-from sklearn.tree import DecisionTreeClassifier as DTC
-model = DTC(criterion='entropy', max_depth=4)
-model.fit(x_train, y_train)
-print(model.score(x_test, y_test))
-'''
-###################################
-# -*- coding: utf-8 -*-
 """
 Created on Tue Jul 31 22:14:11 2018
 @author: 刘刚
+来源 《python运营》
 """
 import numpy as np
 import pandas as pd
