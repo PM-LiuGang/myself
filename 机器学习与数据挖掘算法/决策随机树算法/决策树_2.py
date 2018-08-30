@@ -44,7 +44,7 @@ def create_data_set():
 
 def split_dataset(dataset,axis,value):
     '''
-    按照给定特征划分数据集
+    按照给定特征值划分数据集
     param dataset 数据集
     param axis 划分数据集的特征 索引位置
     param 需要返回特征的值
@@ -67,16 +67,24 @@ def choose_best_feature_tosplit(dataset):
     选择最好的数据集划分方式
     '''
     num_features = len(dataset[0]) - 1 # 特征数量
-    base_entropy = calc_shan_non_ent(dataset)
+    base_entropy = calc_shan_non_ent(dataset)#整个数据集的熵
     best_info_gain = 0.0
     best_feature = -1
-    for i in range(num_features):
+    for i in range(num_features):#遍历数据集中的所有特征=2
+        # 数据每次遍历生成一个内容，放到列表里
+        # dataset = [[1,1,'yes'],[1,1,'yes'],[1,0,'no'],[0,1,'no'],[0,1,'no']]
+        # feat_list = [1,1,1,0,0]
         feat_list = [example[i] for example in dataset]
-        unique_vals = set(feat_list)
+        unique_vals = set(feat_list) # unique_vals = {0,1}
         new_entropy = 0.0
         for value in unique_vals:
-            sub_dataset = split_dataset(dataset,i,value)
-            prob = len(sub_dataset)/float(len(dataset))
+            sub_dataset = split_dataset(dataset,i,value)# 对每个唯一属性值划分一次数据集
+            #i,value = 0,0 0,1 1,0,1,1
+            #I(Xi) = -log2(p(Xi))
+            #H = -∑(i-1，n)p(Xi)log2(p(Xi))
+            #∑通过 -= 实现
+            prob = len(sub_dataset)/float(len(dataset)) # 每个特征向量被均匀的选择的概率
+            #为什么不是prob * log(prob,2)
             new_entropy += prob * calc_shan_non_ent(sub_dataset)
         infogain = base_entropy - new_entropy
         if infogain > best_info_gain:
