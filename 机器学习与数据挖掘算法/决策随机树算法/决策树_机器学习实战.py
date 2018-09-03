@@ -211,3 +211,17 @@ def classify(input_tree,feat_labels,test_vec):
             else:
                 class_label = second_dict[key]
     return class_label
+
+def store_tree(inputtree,filename):
+    #储存算法模型
+    import pickle
+    fw = open(filename,'w')
+    pickle.dump(inputtree,fw)
+    fw.close()
+    
+def grabtree(filename):
+    #读取算法模型
+    import pickle
+    fr = open(filename)
+    return pickle.load(fr)
+
