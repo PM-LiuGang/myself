@@ -1,6 +1,8 @@
 import bisect
 import random
 
+# 往已排序的列表插入新值，而不影响列表的已排序
+
 SIZE = 7
 random.seed(1729)
 
