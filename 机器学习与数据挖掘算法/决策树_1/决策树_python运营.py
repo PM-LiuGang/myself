@@ -21,8 +21,8 @@ y = raw_data[:, -1]
 x_train, x_test, y_train, y_test = train_test_split(
     x, y, test_size=0.3, random_state=0)  # test size=0.3 train=0.7 test=0.3
 model_tree = tree.DecisionTreeClassifier(random_state=0)
-model_tree.fit(x_train, y_train)
-pre_y = model_tree.predict(x_test)
+model_tree.fit(x_train, y_train) # should be model_tree.fit(x_train, y_test) 
+pre_y = model_tree.predict(x_test) # should be pre_y = model_tree.predict(y_train)  
 
 n_samples, n_features = x.shape  # (21927, 4)
 print('samples: %d \t features: %d ' % (n_samples, n_features))
