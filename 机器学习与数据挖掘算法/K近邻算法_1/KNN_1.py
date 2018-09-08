@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Aug 22 18:03:07 2018
-Description:K-近邻算法
+Description:K-近邻算法(不是import模式)
 机器学习实战中K-近邻算法
 Author: pm.liugang
-
 """
 import numpy as np
 import operator
@@ -33,7 +32,7 @@ def classify0(inx, dataset, labels, k):
     5.确定前K个点所在类别的出现频率
     6.返回前K个点出现频率最高的类别作为当前点的预测分类
 
-    param inx 用于分类的输入 向量 ,也就是一个行数，一个点
+    param inx 用于分类的输入 向量 ,也就是一个行数，一个点,要分类的点
     param dataset 输入的训练样本集
     param labels 标签向量
     param k 最近邻的数目
@@ -41,22 +40,19 @@ def classify0(inx, dataset, labels, k):
     '''
     datasetsize = dataset.shape[0]  # 获取数据集的维数
     # np.tile Construct an array by repeating A the number of times given by reps
-    # 分类器基于欧氏距离 d = ((xA0 - xB0) ** 2 + (xA1 - xB1) ** 2) ** 0.5
+    # ↓分类器基于欧氏距离 d = ((Xa0 - Xb0) ** 2 + (Xa1 - Xb1) ** 2) ** 0.5
     diffmat = np.tile(inx, (datasetsize, 1)) - dataset
     sqdiffmat = diffmat ** 2
     sqdistance = sqdiffmat.sum(axis=1)
     distance = sqdistance ** 0.5
-    # 上面步骤 求d
-    # y=np.array([1,4,3,-1,6,9]).argsort() y=array([3,0,2,1,4,5])。
-    sorteddistindicies = distance.argsort()  # 流程3
+    # y=np.array([1,4,3,-1,6,9]).argsort() y=array([3,0,2,1,4,5]) ？
+    sorteddistindicies = distance.argsort()  # 流程 3.
     classcount = {}
     for i in range(k):  # k邻近的数目
-        voteilabel = labels[sorteddistindicies[1]]
+        voteilabel = labels[sorteddistindicies[1]] # 为什么取[1]
         # D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.
         classcount[voteilabel] = classcount.get(voteilabel, 0) + 1
-        # 按字典的值进行排序
-    sortedclasscount = sorted(
-        classcount.items(), key=operator.itemgetter(1), reverse=True)
+    sortedclasscount = sorted(classcount.items(), key=operator.itemgetter(1), reverse=True) # 按字典的值进行排序
     return sortedclasscount[0][0]
 
 
