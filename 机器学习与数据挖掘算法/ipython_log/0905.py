@@ -1,5 +1,5 @@
 # IPython log file
-
+# 18.09.08 回归
 from sklearn import datasets
 import numpy as np
 iris = datasets.load_iris()
@@ -36,18 +36,13 @@ type(x)
 x
 ...
 from sklearn.cross_validation import train_test_split
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=0)
-# test_size x:y = 3:7
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=0) # test_size x:y = 3:7
 len(x_train)
 #[Out]# 105
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 sc.fit(x_train)
 #[Out]# StandardScaler(copy=True, with_mean=True, with_std=True)
-x_train_std = sc.transform(x_train)
-x_test_std = sc.transform(y_train)
-x_test_std = sc.transform(y_train)
-x_test_std = sc.transform(x_test))
 x_test_std = sc.transform(x_test)
 _
 #[Out]# StandardScaler(copy=True, with_mean=True, with_std=True)
@@ -57,24 +52,23 @@ x_train_std
 ...
 x_test_std
 ...
-from sklearn.linear_model import Perceptron
+from sklearn.linear_model import Perceptron # 感知器
 ppn = Perceptron(n_iter=40,eta0=0.1,random_state=0)
 # eta 学习速率 如果学习速率过大，算法可能跳过全局最优解
 # 如果学习速率过小，算法需要更多次的迭代达到收敛，这将导致训练速度变慢
 # random state=0 每次迭代后初始化重排训练数据集
-y_pred = ppn.predict(x_test_std)
+y_pred = ppn.predict(x_test_std) # error 预测应该在训练前
 ppn.fit(x_train,y_train)
 #[Out]# Perceptron(alpha=0.0001, class_weight=None, eta0=0.1, fit_intercept=True,
 #[Out]#       max_iter=None, n_iter=40, n_jobs=1, penalty=None, random_state=0,
 #[Out]#       shuffle=True, tol=None, verbose=0, warm_start=False)
 y_pred = ppn.predict(x_test_std)
-print('Misclassified samples: %d' % (y_test != y_pred).sum())
+print('Misclassified samples: %d' % (y_test != y_pred).sum()) # result must be 4
 y_test.shape
 #[Out]# (45,)
-print('Misclassified samples: %d' % (y_test = y_pred).sum())
-print('Misclassified samples: %d' % (y_test == y_pred).sum())
+
 import pandas as pd
-pd.concat(y_pred,y_test,axis=1)
+pd.concat(y_pred,y_test,axis=1) # pd.concat([,])
 pd.concat(y_pred,y_test,axis=1)
 pd.concat(y_pred,y_test,axis=0)
 pd.concat([y_pred,y_test],axis=0)
@@ -120,9 +114,8 @@ ppn.fit(x_train_std,y_train)
 #[Out]#       max_iter=None, n_iter=40, n_jobs=1, penalty=None, random_state=0,
 #[Out]#       shuffle=True, tol=None, verbose=0, warm_start=False)
 y_pred = ppn.predict(x_test_std)
-print('Misclassified samples: %d' % (y_test != y_pred).sum())
-# 这回对了
-y_test.shape = y_pred.shape
+print('Misclassified samples: %d' % (y_test != y_pred).sum()) # result 41
+y_test.shape = y_pred.shape # 不是赋值
 y_test.shape == y_pred.shape
 #[Out]# True
 y_test.shape
@@ -130,7 +123,7 @@ y_test.shape
 y_pred.shape
 #[Out]# (45,)
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=0)
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score # 从矩阵输出准确率
 from sklearn import datasets
 import numpy as np
 iris = datasets.load_iris()
@@ -157,10 +150,10 @@ y_pred = ppn.predict(x_test_std)
 print('Misclassified samples: %d ' % (y_pred != y_test).sum())
 from sklearn.metrics import accuracy_score
 print('Accuracy : %.2f' % accuracy_score(y_test,y_pred))
+
 from matplotlib.colors import ListedColormap
 import matplotlib.pyplot as plt
 import numpy as np
-
 
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
     marker = list('sxo^v')
@@ -169,10 +162,10 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
     x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
     xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
-                           np.arange(x2_min, x2_max, resolution))
-    z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
-    z = z.reshape(xx1.shape)
-    plt.contourf(xx1, xx2, z, alpha=0.4, cmap=cmap)
+                           np.arange(x2_min, x2_max, resolution)) # np.meshgrid 4 5 => (5,4) (4,5)
+    z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T) # z.shape = (2,20).T => (20,2) = >(20,1)
+    z = z.reshape(xx1.shape)  # shape = (5,4)
+    plt.contourf(xx1, xx2, z, alpha=0.4, cmap=cmap) # contourf(f=fill) 需要手动执行contourf，弄懂参数的含义
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
     x_test, y_test = X[test_idx, :], y[test_idx]
@@ -188,9 +181,6 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
                     
 x_combined_std = np.vstack((x_train_std,x_test_std))
 y_combined = np.hstack((y_train,y_test))
-plot_decision_regions(x=x_combined_std,y=y_combined,classifier=ppn,test_idx=range(105,150))
-x_train_std
-
 plot_decision_regions(X=x_combined_std,y=y_combined,classifier=ppn,test_idx=range(105,150))
 # -*- coding: utf-8 -*-
 """
