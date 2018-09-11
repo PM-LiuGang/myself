@@ -4,6 +4,7 @@ Created on Wed Aug 22 18:03:07 2018
 Description:K-近邻算法(不是import模式)
 机器学习实战中K-近邻算法
 Author: pm.liugang
+回归：2018-09-11
 """
 import numpy as np
 import operator
@@ -23,16 +24,7 @@ def create_dataset():
 
 def classify0(inx, dataset, labels, k):
     '''
-    description 
-    流程：
-    1.对未知类别属性的数据集中的每个点依次执行以下操作
-    2.计算已知类别数据集中的点与当前点之间的距离
-    3.按照距离递增次序排序
-    4.选取与当前点距离最小的K个点
-    5.确定前K个点所在类别的出现频率
-    6.返回前K个点出现频率最高的类别作为当前点的预测分类
-
-    param inx 用于分类的输入 向量 ,也就是一个行数，一个点,要分类的点
+    param inx 用于分类的输入向量 ,预测的点
     param dataset 输入的训练样本集
     param labels 标签向量
     param k 最近邻的数目
