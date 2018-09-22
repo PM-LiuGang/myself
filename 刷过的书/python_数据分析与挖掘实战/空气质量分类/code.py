@@ -3,14 +3,18 @@
 创建时间 Fri Sep 21 14:10:32 2018
 描述:根据空气中SO2，NO，NO2，NOx，PM10，PM2.5的含量对空气质量进行分类评价
 作者:PM.liugang
+遗留问题：有个标签没有分类
 """
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import prettytable
 from sklearn.metrics import confusion_matrix
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.cluster import KMeans
+from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import auc, roc_curve
 
 
 def cmPlot(yTrue, yPred):
@@ -31,52 +35,87 @@ def cmPlot(yTrue, yPred):
     plt.ylabel('True label')  # 坐标轴标签
     plt.xlabel('Predicted label')  # 坐标轴标签
     return plt
+
+
 '''决策树模型'''
-tree = DecisionTreeClassifier()
+tree = DecisionTreeClassifier(criterion='entropy',random_state=0)
+datadf = pd.read_excel('data.xls')
+datadf.drop(248,axis=0,inplace=True)
+datadf['空气等级'].replace('II','2',inplace=True)
+datadf['空气等级'].replace('III','3',inplace=True)
+datadf['空气等级'].replace('I','1',inplace=True)
+datadf['空气等级'].replace('IV','4',inplace=True)
+datadf['空气等级'].replace('V','5',inplace=True)
+datadf['空气等级'].replace('VI','6',inplace=True)
+data = datadf.values
+p = 0.8
+x_train = data[:int(p*len(data)), :]
+y_test = data[int(p*len(data)):, :]
+tree.fit(x_train[:, :-1], x_train[:, -1])
+treePredict = tree.predict(y_test[:, :-1])
 
-data = pd.read_excel('data.xls')
-data = data.values
+y_score = tree.predict_proba(y_test[:,:-1])
+# y_shape=(6579,2) y_score.[:,5] ?
+# ↓ error 不支持多类格式
+fpr, tpr, thresholds = roc_curve(y_test[:,-1], y_score[:, 1])
+auc_s = auc(fpr, tpr)  # AUC曲线
 
-p=0.8
-x_train = data[:int(p*len(data)),:]
-y_test = data[int(p*len(data)):,:]
+#精准率、准确率、召回率，F1调和均值
+accuracy_s = accuracy_score(y_test[:,-1], treePredict)
+precision_s = precision_score(y_test[:,-1], treePredict)
+recall_s = recall_score(y_test[:,-1], treePredict)
+f1_s = f1_score(y_test[:,-1], treePredict)
+# 可视化指标
+core_metrics = prettytable.PrettyTable()
+core_metrics.field_names = ['auc',
+                            'accuracy_s',
+                            'precision',
+                            'recall',
+                            'f1']
+core_metrics.add_row([auc_s,
+                      accuracy_s,
+                      precision_s,
+                      recall_s,
+                      f1_s])
+print('TITLE METRICS')
+print(core_metrics)
+print()
 
-tree.fit(x_train[:,:-1],x_train[:,-1])
-
-treePredict = tree.predict(y_test[:,:-1])
-
-cmPlot(y_test[:,-1],treePredict) 
-
-'''KMeans'''
-km = KMeans(n_clusters=5,random_state=0)
-# km.cluster_centers_
-# km.labels_
-km.fit(x_train[:,:-1])
-kmPred = km.predict(y_test[:,:-1])
-
-yPred = pd.Series(kmPred).value_counts()
-yTrue = pd.Series(y_test[:,-1]).value_counts()
-print(yPred,'\n',yTrue)
-
-from sklearn.manifold import TSNE
-tsne = TSNE()
-tsne.fit_transform(y_test[:,:-1]) #
-tsne = pd.DataFrame(tsne.embedding_)#转换数据格式
-
-import matplotlib.pyplot as plt
-plt.rcParams['font.sans-serif'] = ['SimHei'] #用来正常显示中文标签
-plt.rcParams['axes.unicode_minus'] = False #用来正常显示负号
-#不同类别用不同颜色和样式绘图
-d = tsne[y_test[:,-1] == 'II']
-plt.plot(d[0], d[1], 'r')
-d = tsne[y_test[:,-1] == 'I']
-plt.plot(d[0], d[1], 'g')
-d = tsne[y_test[:,-1] == 'VI']
-plt.plot(d[0], d[1], 'y')
-d = tsne[y_test[:,-1] == 'III']
-plt.plot(d[0], d[1], 'b')
-d = tsne[y_test[:,-1] == 'V']
-plt.plot(d[0], d[1], 'o')
-
+'''可视化ROC曲线'''
+feature_importance = tree.feature_importances_
+color_list = list('rcbg')
+# ROC曲线
+plt.figure()
+plt.subplot(1, 2, 1)
+plt.plot(fpr, tpr, label='ROC')
+plt.plot([0, 1],
+         [0, 1],
+         linestyle='--',
+         color='k',
+         label='RANDOM CHANCE')  # 完全随机曲线
+plt.title('ROC')
+plt.xlabel('Fales Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.legend(loc=0)
+# 特征直方图
+plt.subplot(1, 2, 2)
+plt.bar(np.arange(feature_importance.shape[0]),
+        feature_importance,
+        color=color_list)  # feature_importance ?
+plt.title('Feature importance')
+plt.xlabel('feature')
+plt.ylabel('importance')
+plt.suptitle('classification result')
+plt.tight_layout()
 
 plt.show()
+# roc_curve(y_test[:,-1],treePredict)
+# 如何求准确率 多类的
+# cmPlot(y_test[:, -1], treePredict)
+'''
+confusion_m = confusion_matrix(y_test[:,-1], treePredict)  # confusion_m ?
+confusion_matrix_table = prettytable.PrettyTable()
+confusion_matrix_table.add_row(confusion_m[0, :])
+confusion_matrix_table.add_row(confusion_m[1, :])
+print(confusion_matrix_table)
+'''
