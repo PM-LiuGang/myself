@@ -3,6 +3,7 @@
 创建时间 Fri Sep  7 15:05:26 2018
 描述:决策树 python机器学习
 作者:PM.liugang
+非导包方式实现决策树
 """
 
 import matplotlib.pyplot as plt
