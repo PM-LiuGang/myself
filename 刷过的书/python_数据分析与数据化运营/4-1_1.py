@@ -7,16 +7,14 @@ Created on Thu Aug  9 22:55:46 2018
 
 import numpy as np
 import  matplotlib.pyplot as plt
+
 from sklearn.cluster import KMeans as km
 from sklearn import metrics 
-import os
-
-os.chdir(r'D:\python\python_数据分析与数据化运营\chapter4')
-
+'''准备数据集'''
 raw_data = np.loadtxt('cluster.txt')
 x = raw_data[:,:-1]
 y_true = raw_data[:,-1]
-
+'''构建模型'''
 n_clusters = 3
 model_kmeans = km(n_clusters=n_clusters,random_state=0)
 model_kmeans.fit(x)

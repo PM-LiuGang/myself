@@ -39,6 +39,7 @@ def cmPlot(yTrue, yPred):
 
 '''决策树模型'''
 tree = DecisionTreeClassifier(criterion='entropy',random_state=0)
+'''准备数据集'''
 datadf = pd.read_excel('data.xls')
 datadf.drop(248,axis=0,inplace=True)
 datadf['空气等级'].replace('II','2',inplace=True)
@@ -51,12 +52,16 @@ data = datadf.values
 p = 0.8
 x_train = data[:int(p*len(data)), :]
 y_test = data[int(p*len(data)):, :]
+
+'''决策树模型'''
+tree = DecisionTreeClassifier(criterion='entropy',random_state=0)
 tree.fit(x_train[:, :-1], x_train[:, -1])
 treePredict = tree.predict(y_test[:, :-1])
-
 y_score = tree.predict_proba(y_test[:,:-1])
 # y_shape=(6579,2) y_score.[:,5] ?
 # ↓ error 不支持多类格式
+
+'''模型评估'''
 fpr, tpr, thresholds = roc_curve(y_test[:,-1], y_score[:, 1])
 auc_s = auc(fpr, tpr)  # AUC曲线
 
