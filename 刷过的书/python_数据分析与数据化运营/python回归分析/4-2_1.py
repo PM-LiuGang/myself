@@ -2,7 +2,7 @@
 """
 Created on Sat Aug 11 21:10:55 2018
 @author: 刘刚
-多种模型比较
+python回归模型分析 4-2-6
 """
 
 import numpy as np
@@ -107,5 +107,6 @@ new_point_set = [[1.05393, 0., 8.14, 0., 0.538, 5.935, 29.3, 4.4986, 4., 307., 2
                      3.7965, 4., 307., 21., 288.99, 11.69],
                  [0.7258, 0., 8.14, 0., 0.538, 5.727, 69.5, 3.7965, 4., 307., 21., 390.95, 11.28]]
 for i, new_point in enumerate(new_point_set):
+    # np.array(new_point).reshape(1, -1) = np.array([[]])
     new_pre_y = model_gbr.predict(np.array(new_point).reshape(1, -1))
     print('PREDICT FOR NEW POINT %d is %.2f' % ((i+1), new_pre_y))
