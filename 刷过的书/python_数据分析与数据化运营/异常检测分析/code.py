@@ -41,7 +41,7 @@ n_test_outliers = outlier_test_data.shape[0]
 total_count_test = total_test_data.shape[0]
 
 print('outliers:{0}/{1}'.format(n_test_outliers,total_count_test))#format的用法
-print('{:*^60}'.format(n_test_outliers,total_count_test))#{:*^60}长度60，中间对齐，用*填充
+print('{:*^60}'.format('All Result data (limit 5)'))#{:*^60}长度60，中间对齐，用*填充
 print(total_test_data[:5])
 
 '''异常检测结果展示'''
@@ -60,7 +60,7 @@ s2 = ax.scatter(outlier_test_data[:,0],
                 outlier_test_data[:,1],
                 outlier_test_data[:,2],
                 s=100,
-                edgecolors='k',
+                edgecolors='b',
                 c='r',
                 marker='o')
 
