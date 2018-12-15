@@ -1,0 +1,37 @@
+# IPython log file
+
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_1.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_1.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+DIAL_CODES = [(86, 'China'),(91, 'India'),(1, 'United States'),(62, 'Indonesia'),(55, 'Brazil'),(92, 'Pakistan'),(880, 'Bangladesh'),(234, 'Nigeria'),(7, 'Russia'),(81, 'Japan'),]
+countryCode = {country:code for code,country in DIAL_CODES}
+countryCode
+#[Out]# {'China': 86, 'India': 91, 'United States': 1, 'Indonesia': 62, 'Brazil': 55, 'Pakistan': 92, 'Bangladesh': 880, 'Nigeria': 234, 'Russia': 7, 'Japan': 81}
+{code:country.upper() for country,code in countryCode.items() if code<66}
+#[Out]# {1: 'UNITED STATES', 62: 'INDONESIA', 55: 'BRAZIL', 7: 'RUSSIA'}
+from collections import defaultdict,OrderedDict
+# d.get(k.default)
+get_ipython().run_line_magic('pwd', '')
+#[Out]# 'C:\\Users\\Administrator\\Desktop\\myself\\刷过的书\\python_快速上手'
+get_ipython().run_line_magic('cd', '..')
+get_ipython().run_line_magic('ls', '')
+get_ipython().run_line_magic('cd', 'python_流畅的python/')
+get_ipython().run_line_magic('ls', '')
+import sys
+import re
+wordRe = re.compile(r'\w+')
+index = {}
+with open(sys.argv[1],encoding='utf-8') as fp:
+    for line_no,line in enumerate(fp,1):
+        for match in wordRe.finditer(line):
+            word = match.group()
+            columnNo = match.start() + 1
+            location = (lineNo,columnNo)
+            occurrences = index.get(word,[])
+            occurrences.append(location)
+            index[word] = occurrences
+            
+get_ipython().run_line_magic('logstop', '')

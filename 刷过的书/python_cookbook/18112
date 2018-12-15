@@ -1,0 +1,411 @@
+# IPython log file
+
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_2.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_1.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+runfile('C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手/5_6_1.py', wdir='C:/Users/Administrator/Desktop/myself/刷过的书/python_快速上手')
+DIAL_CODES = [(86, 'China'),(91, 'India'),(1, 'United States'),(62, 'Indonesia'),(55, 'Brazil'),(92, 'Pakistan'),(880, 'Bangladesh'),(234, 'Nigeria'),(7, 'Russia'),(81, 'Japan'),]
+countryCode = {country:code for code,country in DIAL_CODES}
+countryCode
+#[Out]# {'China': 86, 'India': 91, 'United States': 1, 'Indonesia': 62, 'Brazil': 55, 'Pakistan': 92, 'Bangladesh': 880, 'Nigeria': 234, 'Russia': 7, 'Japan': 81}
+{code:country.upper() for country,code in countryCode.items() if code<66}
+#[Out]# {1: 'UNITED STATES', 62: 'INDONESIA', 55: 'BRAZIL', 7: 'RUSSIA'}
+from collections import defaultdict,OrderedDict
+# d.get(k.default)
+get_ipython().run_line_magic('pwd', '')
+#[Out]# 'C:\\Users\\Administrator\\Desktop\\myself\\刷过的书\\python_快速上手'
+get_ipython().run_line_magic('cd', '..')
+get_ipython().run_line_magic('ls', '')
+get_ipython().run_line_magic('cd', 'python_流畅的python/')
+get_ipython().run_line_magic('ls', '')
+get_ipython().run_line_magic('logstart', '-o 18112')
+import sys
+import re
+wordRe = re.compile(r'\w+')
+index = {}
+with open(sys.argv[1],encoding='utf-8') as fp:
+    for line_no,line in enumerate(fp,1):
+        for match in wordRe.finditer(line):
+            word = match.group()
+            columnNo = match.start() + 1
+            location = (lineNo,columnNo)
+            occurrences = index.get(word,[])
+            occurrences.append(location)
+            index[word] = occurrences
+get_ipython().run_line_magic('logstop', '')
+get_ipython().run_line_magic('pwd', '')
+#[Out]# 'C:\\Users\\Administrator\\Desktop\\myself\\刷过的书\\python_流畅的python'
+get_ipython().run_line_magic('cd', '..')
+get_ipython().run_line_magic('ls', '')
+get_ipython().run_line_magic('cd', 'python_cookbook/')
+# 将序列分解为单独的变量
+data = ['ACME',50,91.1,[2012,12,21)]
+data = ['ACME',50,91.1,(2012,12,21)]
+names,shape,price,date = data
+name
+names
+#[Out]# 'ACME'
+shape
+#[Out]# 50
+price
+#[Out]# 91.1
+date
+#[Out]# (2012, 12, 21)
+# 将序列分解为单独的变量
+data = ['ACME',50,91.1,(2012,12,21)]
+names,shape,price,date = data
+names
+#[Out]# 'ACME'
+shape
+#[Out]# 50
+price
+#[Out]# 91.1
+date
+#[Out]# (2012, 12, 21)
+# 如果列表中很多变量，这种枚举的方法也不现实啊
+name,shares,price,(year,mon,day) = data
+year
+#[Out]# 2012
+mon
+#[Out]# 12
+day
+#[Out]# 21
+s = 'Hello'
+a,b,c,d,e = s
+a
+#[Out]# 'H'
+b
+#[Out]# 'e'
+c
+#[Out]# 'l'
+d
+#[Out]# 'l'
+e
+#[Out]# 'o'
+data
+#[Out]# ['ACME', 50, 91.1, (2012, 12, 21)]
+_,shares,price,_ = data
+shares
+#[Out]# 50
+pirce
+price
+#[Out]# 91.1
+# 从任意长度的可迭代对象中分解元素
+def drop_first_last(grades):
+    first,*middle,last = grades
+    return avg(middle)
+
+# *表达式的利用
+record =('Dave','dave@example.com','773-555-1212','847-555-1212')
+name,email,*phone_numbers = user_record
+name,email,*phone_numbers = record
+name
+#[Out]# 'Dave'
+email
+#[Out]# 'dave@example.com'
+phone_numbers
+#[Out]# ['773-555-1212', '847-555-1212']
+record = ('ACEM',50,123.45,(12,10,201))
+name,*_,(*_,year) = record
+name
+#[Out]# 'ACEM'
+year
+#[Out]# 201
+items = [1,10,7,4,5,9]
+head,*tail = items
+head
+#[Out]# 1
+tail
+#[Out]# [10, 7, 4, 5, 9]
+def sum(items):
+    head,*tail = item
+    return head + sum(tail) if tail eles head
+def sum(items):
+    head,*tail = item
+    return head + sum(tail) if tail else head
+
+sum(items)
+def sum(items):
+    head,*tail = items
+    return head + sum(tail) if tail else head
+
+sum(items)
+#[Out]# 36
+# 保存最后N个元素
+# 对一列文本行做简单的文本匹配操作，当发现有匹配时就输入当前的匹配行以及最后检查过的N行文本
+from collections import deque
+def search(lines,pattern,history=5):
+    previous_lines = deque(maxlen=history)
+    for line in lines:
+        if pattern in line:
+            yield line,previous_lines # yield ？？
+        previous_lines.append(line)
+        
+if __name__ == '__main':
+    with open ('usagov_bitly_data2012-03-16-1331923249.txt') as f :
+        for line,prevlines in search(f,'python',5):
+            for pline in prevlines:
+                print(pline,end='')
+                print('-'*20)
+                
+get_ipython().run_line_magic('pwd', '')
+#[Out]# 'C:\\Users\\Administrator\\Desktop\\myself\\刷过的书\\python_cookbook'
+if __name__ == '__main':
+    with open ('18112.py') as f :
+        for line,prevlines in search(f,'python',5):
+            for pline in prevlines:
+                print(pline,end='')
+                print('-'*20)
+                
+# deque(maxlen=N)创建了一个固定长度的队列，当有新记录加入而队列已满时会自动移除最老的那条记录
+q = deque(maxlen=3)
+q
+#[Out]# deque([])
+q.append(1)
+q.append(2)
+q.append(3)
+q
+#[Out]# deque([1, 2, 3])
+q.append(4)
+q
+#[Out]# deque([2, 3, 4])
+q.append(5)
+q
+#[Out]# deque([3, 4, 5])
+q = deque()
+q.append(1)
+q.append(2)
+q.append(3)
+q
+#[Out]# deque([1, 2, 3])
+q.appendleft(4)
+q
+#[Out]# deque([4, 1, 2, 3])
+q.pop()
+#[Out]# 3
+q
+#[Out]# deque([4, 1, 2])
+q.popleft()
+#[Out]# 4
+q
+#[Out]# deque([1, 2])
+# 想在某个集合中找出最大或最小的N个元素
+import heapq
+nums = [1,8,2,23,7,-4,18,23,42,37,2]
+heapq.nlargest(3,nums)
+#[Out]# [42, 37, 23]
+heapq.nlargest(2,nums)
+#[Out]# [42, 37]
+heapq.nsmallest(3,nums)
+#[Out]# [-4, 1, 2]
+heap = list(nums)
+heap
+#[Out]# [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
+heapq.heapify(heap)
+heap
+#[Out]# [-4, 2, 1, 23, 7, 2, 18, 23, 42, 37, 8]
+heap[0]
+#[Out]# -4
+heapq.heappop(heap)
+#[Out]# -4
+heap
+#[Out]# [1, 2, 2, 23, 7, 8, 18, 23, 42, 37]
+d = {'a':[1,2,3],'b':[4,5]}
+e = {'a':[1,2,3].'b':[4,5]}
+from collections import defaultdict
+d = defaultdict(list)
+d['a'].append(1)
+d
+#[Out]# defaultdict(list, {'a': [1]})
+d['a'].append(2)
+d['a'].append(4)
+d
+#[Out]# defaultdict(list, {'a': [1, 2, 4]})
+d['b'].append(4)
+d
+#[Out]# defaultdict(list, {'a': [1, 2, 4], 'b': [4]})
+d = defaultdict(set)
+d['a'].add[1]
+d['a'].add(1)
+d
+#[Out]# defaultdict(set, {'a': {1}})
+d['a'].add(2)
+d
+#[Out]# defaultdict(set, {'a': {1, 2}})
+d['b'].add(4)
+d
+#[Out]# defaultdict(set, {'a': {1, 2}, 'b': {4}})
+d = {}
+d.setdefault('a',[]).append(1)
+d
+#[Out]# {'a': [1]}
+d.setdefault('a',[]).append(2)
+d.setdefault('b',{}).append(2)
+d.setdefault('b',()).append(2)
+d.setdefault('b',[]).append(2)
+d.setdefault('a',[]).append(2)
+d.setdefault('a',[]).append(2)
+d.setdefault('b',[]).append(5)
+d = defaultdict(list)
+for key,value in pairs:
+    d[key].append(value)
+    
+from collections import OrderedDict
+d = OrderedDict()
+d['foo'] =1 
+d['bar'] =2
+d['spam'] = 3
+d['grok'] = 4
+d
+#[Out]# OrderedDict([('foo', 1), ('bar', 2), ('spam', 3), ('grok', 4)])
+import json
+json.dumps(d)
+#[Out]# '{"foo": 1, "bar": 2, "spam": 3, "grok": 4}'
+#  在字典上对数据执行各式各样的计算
+prices = ('ACME':45.2,'AAPL':621.1,'IBM':205.5,'HPQ':37.2,'FB':10.75)
+prices = {'ACME':45.2,'AAPL':621.1,'IBM':205.5,'HPQ':37.2,'FB':10.75}
+prices
+#[Out]# {'ACME': 45.2, 'AAPL': 621.1, 'IBM': 205.5, 'HPQ': 37.2, 'FB': 10.75}
+min_price = min(zip(prices.values(),prices.keys()))
+min_price
+#[Out]# (10.75, 'FB')
+min_price = max(zip(prices.values(),prices.keys()))
+prices_sorted = sorted(zip(prices.values(),prices.keys()))
+prices_sorted
+#[Out]# [(10.75, 'FB'), (37.2, 'HPQ'), (45.2, 'ACME'), (205.5, 'IBM'), (621.1, 'AAPL')]
+prices_and_names = zip(prices.values(),prices.keys())
+prices_and_names
+#[Out]# <zip at 0x7820148>
+print(min(prices_and_names))
+print(max(prices_and_names))
+min(prices)
+#[Out]# 'AAPL'
+max(prices)
+#[Out]# 'IBM'
+prices
+#[Out]# {'ACME': 45.2, 'AAPL': 621.1, 'IBM': 205.5, 'HPQ': 37.2, 'FB': 10.75}
+min(prices.values())
+#[Out]# 10.75
+max(prices.values())
+#[Out]# 621.1
+min(prices,key=lambda k :prices[k])
+#[Out]# 'FB'
+max(prices,key=lambda k :prices[k])
+#[Out]# 'AAPL'
+max(prices,key=prices[k])
+prices = {'AAA':45.2,'ZZZ':45.2}
+min(zip(prices.values(),prices.keys()))
+#[Out]# (45.2, 'AAA')
+max(zip(prices.values(),prices.keys()))
+#[Out]# (45.2, 'ZZZ')
+# 有两个字典，找出他们中间可能相同的地方，相同的键，相同的值
+a = {'x':1,'y':2,'z':3}
+b = {'w':1,'x':10,'y':2}
+a.keys() & b.keys() 
+#[Out]# {'x', 'y'}
+a.keys() = b.keys()
+a.keys() - b.keys()
+#[Out]# {'z'}
+a.items() & b.items()
+#[Out]# {('y', 2)}
+# 除去序列出现的重复元素，但仍然保持剩下的元素顺序不变
+def dedupe(item):
+    seen = set()
+    for item in items:
+        if item not in seen:
+            yield item
+            seen.add(item)
+            
+def fab(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b 
+        a, b = b, a + b
+        n = n + 1
+        
+for n in fab(10):
+    print(n)
+    
+def count(n):
+    while n > 0:
+        yield n 
+        n -= -1
+        
+count(n)
+#[Out]# <generator object count at 0x0000000007844518>
+count(n).next(0)
+count(n).next(1)
+count(n).next
+for i in count(5):
+    print(i)
+    
+def count(n):
+    while n > 0:
+        yield n 
+        n -= -1
+        if n > 100:
+            break
+        
+for i in count(5):
+    print(i)
+    
+def count(n):
+    while n > 0:
+        yield n 
+        n -= 5
+        if n > 100:
+            break
+        
+for i in count(100):
+    print(i)    
+    
+def count(n):
+    while n > 0:
+        #yield n
+        print(n)        
+        n -= 5
+        if n > 100:
+            break
+
+for i in count(100):
+    print(i)
+    
+def count(n):
+    while n > 0:
+        yield n 
+        n -= 5
+        
+a = [1,5,2,1,9,1,5,10]
+lsit(deque(a))
+list(deque(a))
+#[Out]# [1, 5, 2, 1, 9, 1, 5, 10]
+a
+#[Out]# [1, 5, 2, 1, 9, 1, 5, 10]
+def dedupe(item):
+    seen = set()
+    for item in items:
+        if item not in seen:
+            yield item
+            seen.add(item)
+            
+list(dedupe(a))
+#[Out]# [1, 10, 7, 4, 5, 9]
+for i in dedupe(a):
+    print(i)
+    
+# 如果序列中元素是不可哈希的时候
+def dedupe(items,key=None):
+    seen = set()
+    for item in items:
+        val = item if key is None else key(item)
+        if val not in seen:
+            yield item
+            seen.add(val)
+            
+a
+#[Out]# [1, 5, 2, 1, 9, 1, 5, 10]
+set(a)
+#[Out]# {1, 2, 5, 9, 10}
+get_ipython().run_line_magic('logstop', '')
