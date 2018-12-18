@@ -3,7 +3,7 @@
 # author: 刘刚
 # 数据分析与数据化运营 431
 # python分类分析
-# review 18.12.17 输出PDF报错
+# review 18.12.17 输出PDF报错 [已解决]
 
 import numpy as np
 import prettytable
@@ -90,8 +90,7 @@ plt.ylabel('Importance')
 plt.suptitle('Classification Result')
 plt.show()
 
-'''
-保存决策树规则图为PDF文件
+#保存决策树规则图为PDF文件
 dot_data = tree.export_graphviz(model_tree, 
                                 out_file=None, # 控制不生成dot文件
                                 max_depth=5, # 分类规则的最大深度
@@ -100,7 +99,6 @@ dot_data = tree.export_graphviz(model_tree,
                                 rounded=True)  # 控制字体样式
 graph = pydotplus.graph_from_dot_data(dot_data)  # 通过pydotplus将决策树规则解析为图形
 graph.write_pdf("classificationTree.pdf")  # 将决策树规则保存为PDF文件
-'''
 
 # 模型应用
 X_new = np.array([[40, 0, 55616, 0], 
