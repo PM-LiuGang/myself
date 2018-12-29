@@ -3,7 +3,11 @@
 创建时间 Fri Dec 28 13:30:35 2018
 描述:LDA线性判别区分
 作者:PM.liugang
-LDA:监督算法
+遗留：转换矩阵W与书中不一致 eigenPairs[1][1] 符号相反
+"""
+
+'''
+LDA:监督算法:
 LDA方法的关键步骤：
 1.对d维数据集进行标准化处理（d为特征的数量）
 2.对于每一个类别，计算d维的均值向量
@@ -11,13 +15,17 @@ LDA方法的关键步骤：
 4.计算矩阵Sw的-1次幂 * Sb的特征值及对应的特征向量
 5.选取前k个特征值所对应的特征向量，构造一个d*k维的转换W,其中特征向量以列的形式排列
 6.使用转换矩阵W将样本映射到新的特征子空间上
-"""
+'''
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
+
+plt.rcParams['font.sans-serif'] = ['SimHei'] # 输出中文
+plt.rcParams['axes.unicode_minus'] = False # 正负轴显示
 
 # 准备数据
 dfWine = pd.read_csv('wine_data.csv')  # 原文是heared=None->error
@@ -106,3 +114,22 @@ plt.xlabel('线性判别')
 plt.ylim([-0.1, 1.1])
 plt.legend(loc='best')
 plt.show()
+
+'''原始数据映射到新特征空间'''
+w = np.hstack((eigenPairs[0][1][:,np.newaxis].real,
+              eigenPairs[1][1][:,np.newaxis].real)) # w.shape is (13,2)
+print('========矩阵:W========= \n',w)
+xTrainLda = xTrainStd.dot(w)
+colors = list('rbg')
+markers = list('sxo')
+for l, c, m in zip(np.unique(y_train),colors, markers):
+    plt.scatter(xTrainLda[y_train==1,0],
+                xTrainLda[y_train==1,1],
+                c=c,
+                label=l,
+                marker=m)
+plt.xlabel('LD 1')
+plt.ylabel('LD 2')
+plt.legend(loc='upper right')
+plt.show()
+
