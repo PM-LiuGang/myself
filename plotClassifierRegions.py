@@ -4,6 +4,19 @@
 描述:分类可视化模块，参数中包含训练好的模型
 作者:PM.liugang
 """
+import numpy as np 
+import matplotlib.pyplot as plt
+import sys
+
+from sklearn import datasets
+from sklearn.cross_validation import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import Perceptron
+from sklearn.metrics import accuracy_score
+from matplotlib.colors import ListedColormap
+
+plt.rcParams['font.sans-serif'] = ['SimHei'] #输出中文
+plt.rcParams['axes.unicode_minus'] = False#正负轴显示
 
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
     '''
