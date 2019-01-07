@@ -5,7 +5,7 @@
 建立文本向量模型常用的三种方法
 sklearn->TfidfVectorrizer
 gensim->TfidfModel
-
+feature_extraction.text->HashingVectorizer
 作者: PM.LiuGang
 Review:
 遗留：
@@ -17,7 +17,7 @@ import os
 import numpy as np
 import warnings
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup # 解析xml和html数据
 from sklearn.feature_extraction.text import HashingVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
@@ -36,17 +36,17 @@ def str_convert(content):
     for each_char in content:
         code_num = ord(each_char)
         if code_num == 12288: # 全角空格直接转换
-            code_num = 32 # 注意
+            code_num = 32 # 
         elif (code_num >= 65281 and code_num <= 65374): # 全角字符根据关系转化
             code_num -= 65248
-        new_str += chr(code_num)
+        new_str += chr(code_num) # python3-chr python2-unichr
     return new_str
 
 def data_parse(data):
     '''
     从原始文件中解析出文本内容和标签数据
-    param data：包含代码的原始内容
-    return：以列表形式返回文本中的所有内容和对应标签
+    :param data：包含代码的原始内容
+    return：content、域名 | []、[]
     '''
     raw_code = BeautifulSoup(data,'lxml')
     doc_code = raw_code.find_all('doc') # 从包含文本的代码块中找到的doc标签
@@ -59,7 +59,7 @@ def data_parse(data):
             convert_content = str_convert(raw_content)
             content_list.append(convert_content)
             
-            label_code = each_doc.find('url') # 
+            label_code = each_doc.find('url') #
             label_content = label_code.text
             label = re.split('[/|.]',label_content)[2] # 将URL做分割并提取子域名
             label_list.append(label)
@@ -68,10 +68,10 @@ def data_parse(data):
 def cross_val(model_obj,data,label):
     '''
     通过交叉检验计算每次增量学习后的模型得分
-    param model_object:每次增量学习后的模型对象
-    param data 训练数据集
-    param label 训练数据集对应的标签
-    return 交叉检验得分
+    :param model_object: 每次增量学习后的模型对象
+    :param data: 训练数据集
+    :param label: 训练数据集对应的标签
+    return: 交叉检验得分
     '''
     predict_label = model_obj.predict(data)
     score_tmp = round(accuracy_score(label,predict_label),4)
@@ -83,20 +83,20 @@ def word_to_vector(data):
     param data：输入的文本列表
     return 稀疏矩阵
     '''
-    model_vector = HashingVectorizer(non_negative=True)
+    model_vector = HashingVectorizer(non_negative=True) 
     vector_data = model_vector.fit_transform(data)
     return vector_data
 
 def label_to_vector(label,unique_list):
     '''
     将文本标签转换为向量标签
-    param label：文本列表
-    param unique list：唯一值列表
+    :param label：文本列表
+    :param unique_list：唯一值列表 | list
     return 向量标签列表
     '''
     for each_index, each_data in enumerate(label):
-        label[each_index] = unique_list.index(each_data)
-    return label # 跟for同等缩进
+        label[each_index] = unique_list.index(each_data) # 返回具体索引位置
+    return label 
     
 if not os.path.exists('./new_data'):
     print('从新的数据包解压数据..........')
@@ -125,7 +125,8 @@ with open('article.txt',encoding='utf-8') as f:
 new_content, new_label = data_parse(new_data)
 new_data_vector = word_to_vector(new_content)
 
-print('{:*^60}'.format('incremental learning........'))
+print('{:*^60}'.format('增量学习........'))
+
 for root,dirs,files in os.walk('./news_data'):
     for file in files:
         file_name = os.path.join(root,file)

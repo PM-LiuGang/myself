@@ -2,8 +2,8 @@
 """
 创建时间 Mon Jan  7 12:10:24 2019
 作者:PM.liugang
-描述:逻辑斯谛回归对类别概率建模，线性二分类模型，分类模型，工业街最常用的分类模型
-之一，可以使用OvR技巧扩展为多分类模型；逻辑回归中激活函数变成了sigmod函数
+描述:逻辑斯谛回归对类别概率建模；线性二分类模型：分类模型；可以使用OvR技巧扩展为
+多分类模型；逻辑回归中激活函数变成了sigmod函数
 逻辑斯谛不但能预测类别，还能输出具体的概率值，很多场景概率往往比淡出的类别值重要的多
 遗留：
 """
@@ -21,21 +21,19 @@ sys.path.append('C:\\Users\\Administrator\\Desktop\\myself')
 warnings.filterwarnings('ignore')
 # sigmod函数图形示例
 def sigmod(z):
-    return 1.0 / (1.0+np.exp(-z))
+    return 1.0 / (1.0+np.exp(-z)) # remember
 
 z = np.arange(-7,7,0.1)
 phi_z = sigmod(z)
 plt.plot(z,phi_z)
 plt.axvline(0.0,color='k')
-## 需要添加edgecolor,否则没有上下的两条线的颜色
-plt.axhspan(0.0,1.0,facecolor='1.0',alpha=1,ls='dotted',edgecolor='r')
-## plt.axhline(y=1,ls='dotted',color='k')
-## plt.axhline(y=0,ls='dotted',color='k')
-plt.axhline(y=0.5,ls='dotted',color='k')
+#! 需要添加edgecolor,否则没有上下的两条线颜色看不见
+plt.axhspan(0.0,1.0,facecolor='1.0',alpha=1,ls='dotted',edgecolor='r') # 添加一个矩形
+plt.axhline(y=0.5,ls='dotted',color='k') # 添加一个水平的基准线
 plt.yticks([0.0,0.5,1.0])
 plt.ylim(-0.1,1.1)
 plt.xlabel('z')
-plt.ylabel('$\phi (z)$')
+plt.ylabel('$\phi(z)$') # phi是φ的英文名字;\转义
 plt.show()
 
 # 逻辑斯谛模型
@@ -50,6 +48,7 @@ print('=======标签共有几类========')
 print(np.unique(y))
 X_train, X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,
                                                   random_state=0)
+print('=' * 30)
 ## 数据标准化
 sc = StandardScaler()
 sc.fit(X_train)
@@ -61,7 +60,7 @@ y_combined = np.hstack((y_train,y_test))
 lr = LogisticRegression(C=1000.0,random_state=0)
 lr.fit(X_train_std,y_train)
 plot_decision_regions(X_combined_std,y_combined,classifier=lr,
-                      test_idx=range(105,150))
+                      test_idx=range(105,150)) # X_test_std.shape=(45,2)
 plt.xlabel('花瓣长度（标准化后）')
 plt.ylabel('花瓣宽度（标准化后）')
 plt.legend(loc='upper left')
