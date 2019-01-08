@@ -98,7 +98,7 @@ def label_to_vector(label,unique_list):
         label[each_index] = unique_list.index(each_data) # 返回具体索引位置
     return label 
     
-if not os.path.exists('./new_data'):
+if not os.path.exists('new_data'): # ./new_data 也可以
     print('从新的数据包解压数据..........')
     tar = tarfile.open('news_data.tar.gz') # 打开tar gz压缩包对象
     names = tar.getnames() # 获得压缩包内的每个文件对象的名称
@@ -111,7 +111,7 @@ all_label = []
 score_list = list()
 pre_list = list()
 unique_list = ['sports','house','news']
-print('unique label:',unique_list)
+print('去重后的标签:',unique_list)
 model_nb = MultinomialNB()
 
 with open('test_sets.txt',encoding='utf-8') as f:
@@ -125,12 +125,12 @@ with open('article.txt',encoding='utf-8') as f:
 new_content, new_label = data_parse(new_data)
 new_data_vector = word_to_vector(new_content)
 
-print('{:*^60}'.format('增量学习........'))
+print('{:*^60}'.format('增量学习中'))
 
-for root,dirs,files in os.walk('./news_data'):
+for root,dirs,files in os.walk('news_data'): # ./new_data 也可以
     for file in files:
         file_name = os.path.join(root,file)
-        print('training file: %s............' % file)
+        print('拟合文件: %s............' % file)
         with open(file_name,encoding='utf-8') as f:
             data = f.read()
         content,label = data_parse(data)
