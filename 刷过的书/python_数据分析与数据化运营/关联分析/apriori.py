@@ -3,50 +3,67 @@
 import re
 from numpy import *
 
-# 数据集读取分割创建合并订单的事务型数据
 def createData(fileName):
     mat = []
-    req = re.compile(r',')
+    req = re.compile(r',') # 正则表达式模式串
     fr = open(fileName)
     content = fr.readlines()
     for line in content:
         tem = line.replace('\n','').split(',')
         mat.append(tem)
+    fr.close()
     return mat
 
-# 创建一个包含所有项的不变集合
 def createC1(dataSet):
+    '''
+    创建一个包含所有项的不变集合
+    param dataSet | list
+    return 
+    '''
     C1 = []
     for transaction in dataSet:
         for item in transaction:
             if not [item] in C1:
                 C1.append([item])
     C1.sort()
-    return map(frozenset, C1)  # 使用frozenset格式，作为字段的key
+    return map(frozenset, C1)  # 
 
-# 计算所有项集的支持度
 def scanD(D, Ck, minSupport):
+    '''
+    # 计算所有项集的支持度
+    param D | map-object
+    param Ck
+    param minSupport
+    '''
     ssCnt = {}
     for tid in D:
         for can in Ck:
             if can.issubset(tid):
-#                if not ssCnt.has_key(can):
                 if not can is ssCnt:
                     ssCnt[can] = 1
                 else:
                     ssCnt[can] += 1
-    numItems = float(len(D))
+    numItems = float(len(list(D)))
     retList = []
     supportData = {}
     for key in ssCnt:
-        support = ssCnt[key] / numItems
-        if support >= minSupport:
-            retList.insert(0, key)
-        supportData[key] = support
+        try:
+            support = ssCnt[key] / numItems
+        except:
+            continue
+        else:
+            if support >= minSupport:
+                retList.insert(0, key)
+            supportData[key] = support
     return retList, supportData
 
-# 创建候选项集CK
 def aprioriGen(Lk, k):
+    '''
+    创建候选集
+    param Lk
+    param k
+    return
+    '''
     retList = []  # 创建空列表
     lenLk = len(Lk)  # 计算LK中像素的个数
     for i in range(lenLk):
@@ -59,10 +76,12 @@ def aprioriGen(Lk, k):
                 retList.append(Lk[i] | Lk[j])  # 合并
     return retList
 
-# 关联主调用程序
 def apriori(dataSet, minSupport=0.5):
+    '''
+    调用关联程序
+    '''
     C1 = createC1(dataSet)
-    D = map(set, dataSet)
+    D = map(set, dataSet) # 
     L1, supportData = scanD(D, C1, minSupport)
     L = [L1]
     k = 2
@@ -74,8 +93,10 @@ def apriori(dataSet, minSupport=0.5):
         k += 1
     return L, supportData
 
-# 创建关联规则
 def generateRules(fileName, L, supportData, minConf=0.7):  # supportData是从scanD获得的字段
+    '''
+    关联规则
+    '''
     bigRuleList = []
     for i in range(1, len(L)):  # 只获得又有2个或以上的项目的集合
         for freqSet in L[i]:
@@ -86,8 +107,11 @@ def generateRules(fileName, L, supportData, minConf=0.7):  # supportData是从sc
                 calcConf(fileName, freqSet, H1, supportData, bigRuleList, minConf)
     return bigRuleList
 
-# 实例数、支持度、置信度和提升度评估
+
 def calcConf(fileName, freqSet, H, supportData, brl, minConf=0.7):
+    '''
+    实例数、支持度、置信度和提升度评估
+    '''
     prunedH = []
     D = createData(fileName)
     numItems = float(len(D))
@@ -101,8 +125,11 @@ def calcConf(fileName, freqSet, H, supportData, brl, minConf=0.7):
             prunedH.append(conseq)
     return prunedH
 
-# 生成候选规则集
+
 def rulesFromConseq(fileName, freqSet, H, supportData, brl, minConf=0.7):
+    '''
+    生成候选规则集
+    '''
     m = len(H[0])
     if (len(freqSet) > (m + 1)):
         Hmp1 = aprioriGen(H, m + 1)
