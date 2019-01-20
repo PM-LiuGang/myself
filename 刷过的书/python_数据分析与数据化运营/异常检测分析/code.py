@@ -25,9 +25,7 @@ train_set = raw_data[:900,:]
 test_set = raw_data[100:,:]
 
 '''模型学习'''
-model_ocsvm = ocsvm(nu=0.1,
-                    kernel='rbf', # 多项式
-                    random_state=0)
+model_ocsvm = ocsvm(nu=0.1,kernel='rbf',random_state=0)
 model_ocsvm.fit(train_set)
 pre_test_outliers = model_ocsvm.predict(test_set) # 值[-1,1]
 
