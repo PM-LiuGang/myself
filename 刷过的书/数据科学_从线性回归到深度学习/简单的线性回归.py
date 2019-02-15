@@ -2,7 +2,7 @@
 # 回归日期 2018-09-13
 
 import numpy as np
-import sys
+#import sys
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn import linear_model
@@ -13,8 +13,8 @@ def readData(path):
 
 def linearModel(data):
     '''
-    主运行函数
-    param data 数据集 pandas格式
+    主运行函数，包括训练模型，评估模型，可视化模型的泛化能力
+    param data 数据集 | pd
     '''
     feature = ['x']
     label = ['y']
@@ -23,7 +23,6 @@ def linearModel(data):
     model = trainModel(traindata, feature, label)
     error, score = evaluateModel(model, testdata, feature, label)
     visualizeModel(model, data, feature, label, error, score)
-
 
 def trainModel(traindata, feature, label):
     '''
@@ -53,7 +52,6 @@ def evaluateModel(model, testdata, feature, label):
         testdata[feature],
         testdata[label])
     return error, score
-
 
 def visualizeModel(model, data, feature, label, error, score):
     plt.rcParams['font.sans-serif'] = ['SimHei']
