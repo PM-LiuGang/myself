@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Aug  7 20:27:34 2018
-
 @author: 刘刚
+review:190123
 """
 
 import re,os
@@ -10,25 +10,27 @@ import collections
 import numpy as np
 import jieba
 import wordcloud
-from PIL import Image
 import matplotlib.pyplot as plt
 
-os.chdir('C:\python\python_数据分析与数据化运营\chapter4')
+from PIL import Image
+
 file = 'article1.txt'
+remove_words = ['的', '，', '和', '是', '随着', '对于', ' ', '对', '等',
+                '能', '都', '。','、', '中', '与', '在', '其', '了', 
+                '可以', '进行', '有', '更', '需要', '提供','多', '能力', 
+                '通过', '会', '不同', '一个', '这个', '我们', '将', '并',
+                '同时', '看', '如果', '但', '到', '非常', '—', '如何', 
+                '包括', '这']
+
 
 def jieba_fenci(file):
     fn = open(file)
     string_data = fn.read()
     fn.close()
-#    pattern = re.compile(u'\t|\n|\.|-|-|')
-    pattern = re.compile(u'\t|\n|\.|-|一|:|;|\)|\(|\?|"') #排除标点符号
+    pattern = re.compile('\t|\n|\.|-|一|:|;|\)|\(|\?|"') #排除标点符号
     string_data = re.sub(pattern,'',string_data)
     seg_list_exact = jieba.cut(string_data,cut_all=False)
     object_list = []
-    remove_words = [u'的', u'，', u'和', u'是', u'随着', u'对于', ' ', u'对', u'等', u'能', u'都', u'。',
-                u'、', u'中', u'与', u'在', u'其', u'了', u'可以', u'进行', u'有', u'更', u'需要', u'提供',
-                u'多', u'能力', u'通过', u'会', u'不同', u'一个', u'这个', u'我们', u'将', u'并',
-                u'同时', u'看', u'如果', u'但', u'到', u'非常', u'—', u'如何', u'包括', u'这']
     for word in seg_list_exact:
         if word not in remove_words:
             object_list.append(word)
@@ -53,20 +55,10 @@ def jieba_fenci(file):
    
 jieba_fenci(file)
 
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  7 23:48:30 2018
-
-@author: 刘刚
-"""
-
 import jieba.posseg as pseg
 import pandas as pd
-import os
 
-os.chdir('C:\python\python_数据分析与数据化运营\chapter4')
-
-fn = open('article1.txt')
+fn = open(file)
 string_data = fn.read()
 fn.close()
 #分词+词性标注
@@ -76,62 +68,25 @@ for word in words:
     words_list.append((word.word,word.flag))#分词和词性
 words_pd = pd.DataFrame(words_list,columns=['word','type'])
 print(words_pd.head(4))
-'''
-        word type
-0      Adobe  eng
-1               x
-2  Analytics  eng
-3          和    c
-e + ng
-'''
+
 #词性分类汇总-两列分类
 words_gb = words_pd.groupby(['type','word'])['word'].count()
 print(words_gb.head(4))
-'''
-type  word
-a     不同      14
-      不足       2
-      不通       1
-      严谨       2
-'''
+
 #词性分类汇总，单列分类
 words_gb2 = words_pd.groupby('type').count()
 words_gb2 = words_gb2.sort_values(by='word',ascending=False)
 print(words_gb2.head(4))
-'''
-      word
-type      
-x      994
-n      981
-v      834
-eng    295
-'''
 
 #选择特性类型词语做展示
 words_pd_index = words_pd['type'].isin(['n','eng'])
 words_pd_select = words_pd[words_pd_index]
 print(words_pd_select.head(4))
-'''
-        word type
-0      Adobe  eng
-2  Analytics  eng
-4   Webtrekk  eng
-9         领域    n
-'''
 
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug  8 00:25:35 2018
-
-@author: 刘刚
-"""
 import jieba.posseg as pseg
 import pandas as pd
-import os
 
-os.chdir('C:\python\python_数据分析与数据化运营\chapter4')
-
-fn = open('article1.txt')
+fn = open(file)
 string_data = fn.read()
 fn.close()
 #分词+词性标注
@@ -141,74 +96,25 @@ for word in words:
     words_list.append((word.word,word.flag))#分词和词性
 words_pd = pd.DataFrame(words_list,columns=['word','type'])
 print(words_pd.head(4))
-'''
-        word type
-0      Adobe  eng
-1               x
-2  Analytics  eng
-3          和    c
-e + ng
-'''
-#词性分类汇总-两列分类
-words_gb = words_pd.groupby(['type','word'])['word'].count()
-print(words_gb.head(4))
-'''
-type  word
-a     不同      14
-      不足       2
-      不通       1
-      严谨       2
-'''
+
 #词性分类汇总，单列分类
 words_gb2 = words_pd.groupby('type').count()
 words_gb2 = words_gb2.sort_values(by='word',ascending=False)
 print(words_gb2.head(4))
-'''
-      word
-type      
-x      994
-n      981
-v      834
-eng    295
-'''
 
 #选择特性类型词语做展示
 words_pd_index = words_pd['type'].isin(['n','eng'])
 words_pd_select = words_pd[words_pd_index]
 print(words_pd_select.head(4))
-'''
-        word type
-0      Adobe  eng
-2  Analytics  eng
-4   Webtrekk  eng
-9         领域    n
-'''
-
-
-import re,os
-import collections
-import numpy as np
-import jieba
-import wordcloud
-from PIL import Image
-import matplotlib.pyplot as plt
-
-os.chdir('C:\python\python_数据分析与数据化运营\chapter4')
-file = 'article1.txt'
 
 def jieba_fenci(file):
     fn = open(file)
     string_data = fn.read()
     fn.close()
-#    pattern = re.compile(u'\t|\n|\.|-|-|')
     pattern = re.compile(u'\t|\n|\.|-|一|:|;|\)|\(|\?|"') #排除标点符号
     string_data = re.sub(pattern,'',string_data)
     seg_list_exact = jieba.cut(string_data,cut_all=False)
     object_list = []
-    remove_words = [u'的', u'，', u'和', u'是', u'随着', u'对于', ' ', u'对', u'等', u'能', u'都', u'。',
-                u'、', u'中', u'与', u'在', u'其', u'了', u'可以', u'进行', u'有', u'更', u'需要', u'提供',
-                u'多', u'能力', u'通过', u'会', u'不同', u'一个', u'这个', u'我们', u'将', u'并',
-                u'同时', u'看', u'如果', u'但', u'到', u'非常', u'—', u'如何', u'包括', u'这']
     for word in seg_list_exact:
         if word not in remove_words:
             object_list.append(word)
@@ -233,12 +139,8 @@ def jieba_fenci(file):
    
 jieba_fenci(file)    
 
-import jieba.analyse
-import pandas as pd
-import os
-os.chdir('C:\python\python_数据分析与数据化运营\chapter4')
 # 读取文本文件
-fn = open('article1.txt')  # 以只读方式打开文件
+fn = open(file)  # 以只读方式打开文件
 string_data = fn.read()  # 使用read方法读取整段文本
 fn.close()  # 关闭文件对象
 
@@ -250,8 +152,6 @@ for i in tags_pairs:
 tags_pd = pd.DataFrame(tags_list,columns=['word','flag','weight'])
 print(tags_pd)
 
-import numpy as np
-import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 import jieba.posseg as pseg
@@ -264,11 +164,12 @@ def jieba_cut(comment):
             word_list.append(word.word)
     return word_list
 
-fn = open('comment_utf_8.txt',encoding='utf-8')
+fn = open('comment_utf_8.txt',encoding='utf-8') # file
 comment_list = fn.readlines()
 fn.close()
 
-stop_words = stop_words = [u'…', u'。', u'，', u'？', u'！', u'+', u' ', u'、', u'：', u'；', u'（', u'）', u'.', u'-']
+stop_words = stop_words = [u'…', u'。', u'，', u'？', u'！', u'+', u' ', 
+                           u'、', u'：', u'；', u'（', u'）', u'.', u'-']
 #stop_words自定义去除的词表，不指定会默认使用英文的停用词列表
 #tokenizer定义分词器
 #指定tf-idf方法做词频转向量
