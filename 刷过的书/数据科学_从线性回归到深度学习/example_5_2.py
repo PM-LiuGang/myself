@@ -8,7 +8,7 @@ Review:
 mosaic与书中图不一致：（占比）颜色不一致、横坐标轴的刻度不一致
 """
 
-import os
+#import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import statsmodels.api as sm
