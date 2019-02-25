@@ -12,6 +12,9 @@ import re
 import numpy as np
 import matplotlib.pyplot as plt
 
+from warnings import filterwarnings
+
+filterwarnings('ignore')
 plt.style.use('ggplot')
 
 pd.set_option('display.max_columns',30)
@@ -51,10 +54,10 @@ def parse_info(row):
     pd.Series
     '''
     if not 'sqrt' in row:
-        br, ba = row.split(' ')[:2]
+        br, ba = row.split('•')[:2]
         sqft = np.nan
     else:
-        br, ba, sqft = row.split('.')[:3]
+        br, ba, sqft = row.split('•')[:3]
     return pd.Series({'Beds':br, 'Bath':ba, 'Sqft':sqft})
 
 
@@ -101,14 +104,14 @@ print((suf.T).head(5))
 
 '''重命名奇怪的列名，并重置索引'''
 sudf = suf[['pricelarge_value_prices', 'Beds', 'Bath', 'Sqft', 'Floor', 'Zip']]
-sudf.rename(columns={'pricelarge_value_prices':'租金',
-                     'Beds':'卧室',
-                     'Bath':'浴室',
-                     'Sqft':'平方英尺',
-                     'Floor':'楼层',
-                     'Zip':'邮政编码'}, inplace=True)
+sudf.rename(columns={'pricelarge_value_prices':'Rent'}, inplace=True)
 sudf.reset_index(drop=True, inplace=True) # drop=True reset columns index to the default integer index
-print(sudf)
+print(sudf.head(8))
+
+''' ''' 
+sudf.loc[:,'Beds'] = sudf['Beds'].map(lambda x: 0 if 'Studio' in x else x)
+print(sudf.head(8))
+
 
 
 

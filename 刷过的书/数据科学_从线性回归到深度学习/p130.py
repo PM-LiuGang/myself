@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 创建时间：Tue Feb  5 16:26:51 2019
-描述：展示使用逻辑回归解决多元分类问题
+描述：使用逻辑回归解决多元分类问题
 作者: PM.LiuGang
-Review:
+Review:190225
 遗留：每个散点图的点（含义）不理解
 """
 
@@ -29,9 +29,9 @@ def multiLogit(data):
     features = ['x1', 'x2']
     labels = 'label'
     fig = plt.figure(figsize=(8, 3), dpi=80)
-    methods = ['multinomial', 'ovr']
+    methods = ['multinomial', 'ovr'] # 多项式 
     for i in range(len(methods)):
-        model = LogisticRegression(multi_class=methods[i],
+        model = LogisticRegression(multi_class=methods[i], # 多元线性
                                    solver='sag',
                                    max_iter=1000,
                                    random_state=42)
@@ -40,7 +40,7 @@ def multiLogit(data):
         x1Max, x2Max = np.max(data[features]) + 0.5
         area = np.dstack(np.meshgrid(np.arange(x1Min, x1Max, 0.02),
                                      np.arange(x2Min, x2Max, 0.02)))  
-        area = area.reshape(-1,2) # 生成Cartesian积
+        area = area.reshape(-1,2)
         pic = model.predict(area)
         ax = fig.add_subplot(1, 2, i + 1)
         colors = np.array(['blue', 'gray', 'white']) # blue replace black
