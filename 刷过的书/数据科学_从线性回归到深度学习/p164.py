@@ -35,10 +35,10 @@ def readData(path):
     Parameters
     ----------
     path : str
-        file name(path)
+        文件名称，可带路径名称或不带路径名称
         
-    Returns:
-    --------
+    Returns
+    -------
     data[col] : pd.DataFrame
         data
     '''
@@ -57,6 +57,11 @@ def readData(path):
 def trainModel2(data):
     '''
     加入workclass变量，搭建逻辑回归模型，并训练模型
+    
+    Returns
+    -------
+    re : model
+        训练好的模型
     '''
     l = [" ?",
          " Never-worked",
@@ -144,8 +149,7 @@ def makePrediction(re, testSet, alpha=0.5):
     pd.options.mode.chained_assignment = None
     data = testSet.copy()
     data['prob'] = re.predict(data)
-    data['pred'] = data.apply(
-        lambda x: 1 if x['prob'] > alpha else 0, axis=1)
+    data['pred'] = data.apply(lambda x: 1 if x['prob'] > alpha else 0, axis=1)
     return data
 
 
@@ -155,70 +159,80 @@ def evaluation(newRe, baseRe):
     
     Parameters
     ----------
-    newRe : model
-        训练好的带C模型
-    baseRe : model
-        训练好的基础模型
+    newRe : [DataFrame,DataFrame3,DataFrame2.....]
+        已添加预测概率列和分类标签
+    baseRe : [DataFrame1,DataFrame2......]
+        原始数据
     
     Returns
     -------
     matplotlib.pyplot.Axes
     '''
     # 加入性别后的模型
-    fpr, tpr, _ = metrics.roc_curve(newRe['label_code'],
-                                    newRe['prob'])
-    auc = metrics.auc(fpr, tpr)
     fig = plt.figure(figsize=(6, 6), dpi=80)
     ax = fig.add_subplot(111)
     ax.set_title('%s' % 'ROC曲线')
     ax.set_xlabel('Fales Positive Rate')
     ax.set_ylabel('True Positive Rate')
-    ax.plot([0, 1], [0, 1], 'r--')
+    ax.plot([0, 1], [0, 1], 'g--', label='0-1单位对角线')
     ax.set_xlim([0, 1])
     ax.set_ylim([0, 1])
-    ax.plot(fpr, tpr, 'k', 
-            label='%s;%s = %0.2f' % ('加入性别后的ROC曲线', '曲线下面积（AUC）', auc))
+    note = ['加入workclass变量', '加入sex变量']
+    color = list('ry')
+    for seq, re in enumerate(newRe):        
+        fpr, tpr, _ = metrics.roc_curve(re['label_code'],
+                                        re['prob'])
+        auc = metrics.auc(fpr, tpr)
+        ax.plot(fpr, tpr,color[seq],    
+                label='%s%s;%s = %0.2f' % (note[seq],'的ROC曲线', '曲线下面积（AUC）', auc))
     # 基础模型
     fpr, tpr, _ = metrics.roc_curve(baseRe['label_code'],
                                     baseRe['prob'])
     auc = metrics.auc(fpr, tpr)
-    ax.plot(fpr, tpr, 'b-', label='%s;%s = %0.2f' %
-            ('加入性别前的ROC曲线', '曲线下面积（AUC）', auc))
-    plt.legend(shadow=True)
+    ax.plot(fpr, tpr, 'b-', 
+            label='%s;%s = %0.2f' % ('加入性别前的ROC曲线', '曲线下面积（AUC）', auc))
+    plt.legend(loc=4, shadow=True,)
     plt.show()
-
+    
+#def props(key): 
+#    if ' >50K' in key:
+#        return {'color': "#C6E2FF"}
+#    else:
+#        return {'color': '0.45'}
 
 def analyseData(data):
     '''
-
+    性别和标签（>50K,<=50K)的交叉关系
     '''
     cross1 = pd.crosstab(data['sex'], data['label'])
     print('显示sex & label交叉报表：')
     print(cross1)
-
-    def props(key): return {'color': '0.45'} if ' >50K' in key else \
-        {'color': "#C6E2FF"}
-    mosaic(cross1[[' >50K', ' <=50K']].stack(), properties=props)
+    props = lambda key: {'color': "#C6E2FF"} \
+                         if ' >50K' in key else {'color': '0.45'} # 每个块的颜色
+    mosaic(cross1[[' >50K', ' <=50K']].stack(), properties=props, gap=0.05)
     plt.show()
 
 
 def logitRegression(data):
     '''
-
+    逻辑回归主程序
     '''
     data = transLabel(data,'label')
     analyseData(data)
-    trainSet, testSet = train_test_split(data,
-                                         test_size=0.2,
-                                         random_state=2310)
-    newRe = trainModel3(trainSet)
-#    newRe = trainModel2(trainSet)
-#    newRe = trainModel1(trainSet)
-    print(newRe.summary())
-    newRe = makePrediction(newRe, testSet)
+    trainSet, testSet = train_test_split(data, test_size=0.2,random_state=2310)
+    # 新模型
+    modelSum = [trainModel2, trainModel3]
+    newModelSum = []
+    for m in modelSum:
+        newRe = m(trainSet)
+        print('{:*^70}'.format(m.__name__ + ':新模型OLS参数一览'))
+        print(newRe.summary())
+        newRe = makePrediction(newRe, testSet)
+        newModelSum.append(newRe)
+    # 基本模型
     baseRe = baseModel(trainSet)
     baseRe = makePrediction(baseRe, testSet)
-    evaluation(newRe, baseRe)
+    evaluation(newModelSum, baseRe)
 
 
 if __name__ == '__main__':
