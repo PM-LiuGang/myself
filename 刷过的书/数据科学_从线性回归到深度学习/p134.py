@@ -112,14 +112,16 @@ def visualize(ratios, predPositive, truePositive, aucs, accuracies,
     ax.plot(ratios, predPositive, label='%s' % '预测结果里类别1的个数')
     ax.plot(ratios, truePositive, 'k--', label='%s' % '原始数据集里类别1的个数')
     ax.set_xlabel("原始数据集Y>0的占比")
+    ax.set_ylabel("原始数据集Y>0的数量")
     ax.set_xlim([0, 0.5])
     ax.invert_xaxis()  # 将x或y轴逆序显示
     plt.legend(shadow=True, loc='best')
 
     ax1 = fig.add_subplot(1, 2, 2)
-    ax1.plot(ratios, aucs, 'r', label='%s' % '曲线下面积（AUC）')
+    ax1.plot(ratios, aucs, 'r', label='%s' % '曲线下的面积（AUC）')
     ax1.plot(ratios, accuracies, 'k-', label='%s' % '准确度（ACC）')
-    ax.set_xlabel("原始数据集Y>0的占比")
+    ax1.set_xlabel("原始数据集Y>0的占比")
+    ax1.set_ylabel("Value")
     ax1.set_xlim([0, 0.5])
     ax1.set_ylim([0.5, 1])
     ax1.invert_xaxis()

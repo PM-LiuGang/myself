@@ -2,73 +2,107 @@
 """
 创建时间 Mon Jan  7 12:10:24 2019
 作者:PM.liugang
-描述:逻辑斯谛回归对类别概率建模；线性二分类模型：分类模型；可以使用OvR技巧扩展为
-多分类模型；逻辑回归中激活函数变成了sigmod函数
-逻辑斯谛不但能预测类别，还能输出具体的概率值，很多场景概率往往比淡出的类别值重要的多
+描述:逻辑斯谛回归对类别概率建模；线性二分类模型：分类模型；
+可以使用OvR技巧扩展为多分类模型；逻辑回归中激活函数变成了sigmod函数
+逻辑斯谛不但能预测类别，还能输出具体的概率值，很多场景概率往往比淡出
+的类别值重要的多
 遗留：
+review:190312
 """
 import sys
+sys.path.append('C:\\Users\\Administrator\\Desktop\\myself')
+import warnings
+warnings.filterwarnings('ignore')
+
 import matplotlib.pyplot as plt
 import numpy as np
-import warnings
 
 from sklearn import datasets
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
-#from sklearn.preprocessing import MinMaxScaler
-
-sys.path.append('C:\\Users\\Administrator\\Desktop\\myself')
-warnings.filterwarnings('ignore')
-# sigmod函数图形示例
-def sigmod(z):
-    return 1.0 / (1.0+np.exp(-z)) # remember
-
-z = np.arange(-7,7,0.1)
-phi_z = sigmod(z)
-plt.plot(z,phi_z)
-plt.axvline(0.0,color='k')
-#! 需要添加edgecolor,否则没有上下的两条线颜色看不见
-plt.axhspan(0.0,1.0,facecolor='1.0',alpha=1,ls='dotted',edgecolor='r') # 添加一个矩形
-plt.axhline(y=0.5,ls='dotted',color='k') # 添加一个水平的基准线
-plt.yticks([0.0,0.5,1.0])
-plt.ylim(-0.1,1.1)
-plt.xlabel('z')
-plt.ylabel('$\phi(z)$') # phi是φ的英文名字;\转义
-plt.show()
-
-# 逻辑斯谛模型
 from sklearn.linear_model import LogisticRegression
 from plotClassifierRegions import plot_decision_regions
 
-## 准备数据
+def sigmod(z):
+    """sigmod分布函数
+    
+    Parameters
+    ----------
+    z : np.ndarray
+        数据横坐标
+    
+    Returns
+    -------
+    P(概率)
+    """
+    return 1.0 / (1.0+np.exp(-z)) # F分布函数
+
+
+def logisticDistributionVisual(z):
+    """可视化Logistics分布的函数图形
+    Parameters
+    ----------
+    z : np.ndarray
+        横坐标
+    
+    Returns
+    -------
+    
+    """
+    phiZ = sigmod(z)
+    plt.plot(z, phiZ)
+    plt.axhspan(0, 1, facecolor='w', alpha=1.0, edgecolor='r')
+    plt.axhline(y=0.5, color="k")
+    plt.axvline(0, 0, color="k")
+    plt.yticks([0.0, 0.5, 1.0])
+    plt.ylim(-0.1, 1.1)
+    plt.xlabel("z")
+    plt.ylabel("$\phi(z)$")
+    plt.title("Logistic分布函数图形")
+    plt.show()
+
+
+def dataCollation(trainData, testData, trainLabel, testLabel):
+    """
+    
+    """
+    sc = StandardScaler()
+    sc.fit(trainData)
+    xTrainStd = sc.transform(trainData)
+    xTestStd = sc.transform(testData)
+    xCombinedStd = np.vstack((xTrainStd, xTestStd))
+    yCombine = np.hstack((trainLabel, testLabel))
+    return xTrainStd, xTestStd, xCombinedStd, yCombine
+
+
 iris = datasets.load_iris()
-X = iris.data[:,[2,3]]
-y = iris.target
-print('=======标签共有几类========')
-print(np.unique(y))
-X_train, X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,
-                                                  random_state=0)
-print('=' * 30)
-## 数据标准化
-sc = StandardScaler()
-sc.fit(X_train)
-X_train_std = sc.transform(X_train)
-X_test_std = sc.transform(X_test)
-X_combined_std = np.vstack((X_train_std,X_test_std))
-y_combined = np.hstack((y_train,y_test))
+trainData = iris.data[:,[2,3]]
+trainLabel = iris.target
+print("训练数据的形状：",trainData.shape)
+print("训练数据共有%s类" % (len(np.unique(trainLabel))))    
+X_train, X_test, y_train, y_test = train_test_split(
+        trainData,trainLabel,
+        test_size=0.3,
+        random_state=0)
 
-lr = LogisticRegression(C=1000.0,random_state=0)
-lr.fit(X_train_std,y_train)
-plot_decision_regions(X_combined_std,y_combined,classifier=lr,
-                      test_idx=range(105,150)) # X_test_std.shape=(45,2)
-plt.xlabel('花瓣长度（标准化后）')
-plt.ylabel('花瓣宽度（标准化后）')
-plt.legend(loc='upper left')
-plt.show()
 
-lr_proba = lr.predict_proba(X_test_std[0,:].reshape(1,-1)) # 预测输出概率
 
-for i,p in enumerate(lr_proba[0]):
-    print('属于第%d类的概率是%.2f%%' % (i+1,p * 100))
+if __name__ == "__main__":
+    z = np.arange(-7,7,0.1)
+    logisticDistributionVisual(z)
+    xTrainStd, xTestStd, xCombinedStd, yCombine = dataCollation(X_train, X_test, y_train, y_test)
+    lr = LogisticRegression(C=1000.0,random_state=0)
+    lr.fit(xTrainStd, y_train)
+    plot_decision_regions(xCombinedStd,yCombine,
+                          classifier=lr,
+                          test_idx=range(105,150)) # 105-150是验证集
+    plt.xlabel('花瓣长度（标准化后）')
+    plt.ylabel('花瓣宽度（标准化后）')
+    plt.legend(loc='upper left')
+    plt.show()
+    # 预测输出概率
+    lr_proba = lr.predict_proba(X_test[0,:].reshape(1,-1)) 
+    for i,p in enumerate(lr_proba[0]):
+        print('属于第%d类的概率是%.2f%%' % (i+1,p * 100))
     
 
