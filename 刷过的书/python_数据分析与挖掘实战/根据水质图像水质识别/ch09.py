@@ -3,67 +3,51 @@
 创建时间 Fri Sep 21 11:19:46 2018
 描述:
 作者:PM.liugang
+review:180308
+遗留：为什么原始数据要放大30倍？
 """
-
+import sys
 import pandas as pd
+#import numpy as np
+#import matplotlib.pyplot as plt
 
 from sklearn import metrics
 from sklearn import svm
-from random import shuffle
-#from sklearn.cross_validation import train_test_split
-import pandas as pd 
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
+#from random import shuffle
+from sklearn.cross_validation import train_test_split
+#from sklearn.metrics import confusion_matrix
 
-def cmPlot(yTrue, yPred):
-    '''
-    param yTrue
-    param yPred
-    return
-    '''
-    cm = confusion_matrix(yTrue, yPred)  # 生成混淆矩阵
-    plt.matshow(cm, cmap=plt.cm.Greens)  # 画混淆矩阵图，配色风格使用cm.Greens
-    plt.colorbar()  # 颜色标签
-    for x in range(len(cm)):  # 数据标签
-        for y in range(len(cm)):
-            plt.annotate(cm[x, y],
-                         xy=(x, y),
-                         horizontalalignment='center',
-                         verticalalignment='center')
-    plt.ylabel('True label')  # 坐标轴标签
-    plt.xlabel('Predicted label')  # 坐标轴标签
-    return plt
+sys.path.append(r"C:\Users\Administrator\Desktop\myself")
+from cmPlot import cmPlot
 
-'''数据抽样代码'''
+'''准备数据'''
 ifile = 'moment.csv'
 data = pd.read_csv(ifile, encoding='gbk')
 data = data.values
-'''扰乱数据'''
-shuffle(data)
-data_train = data[:int(0.8*len(data)), :]
-data_test = data[int(0.8*len(data)):, :]
-'''支持向量机模型代码'''
-x_train = data_train[:, 2:] * 30 # .shape (162,9)
-y_train = data_train[:, 0].astype(int) # .shape(1,162)
-x_test = data_test[:, 2:] * 30 # .shape(41,9)
-y_test = data_test[:, 0].astype(int) # .shape(1,41)
-#x_train,y_train,x_test,y_test = train_test_split(data)
+data_train, data_test, label_train, label_test = train_test_split(
+        data[:,2:], data[:,0],
+        test_size=0.2, 
+        random_state=0)
+'''数据处理'''
+data_train = data_train * 30
+data_test = data_test * 30
+data_train_small = data_train / 30
+data_test_small = data_test / 30
+label_train = label_train.astype(int) # np.float->int
+label_test = label_test.astype(int)
+'''支持向量机模型建立'''
 model = svm.SVC()
-model.fit(x_train, y_train) 
-
-cm_train = metrics.confusion_matrix(y_train,
-                                    model.predict(x_train)) # 4,4
-cm_test = metrics.confusion_matrix(y_test,
-                                   model.predict(x_test)) # 3,3
-'''
-pd.DataFrame(cm_train,
-             index=range(1, 6),
-             columns=range(1, 6)).to_excel('ofile_train.csv')
-pd.DataFrame(cm_test,
-             index=range(1, 6),
-             columns=range(1, 6)).to_excel('ofile_test.csv')
-'''
-
-cmPlot(y_train,model.predict(x_train))
-cmPlot(y_test,model.predict(x_test))
+model.fit(data_train, label_train) 
+'''混淆矩阵'''
+cm_train = metrics.confusion_matrix(label_train,model.predict(data_train))
+cm_test = metrics.confusion_matrix(label_test,model.predict(data_test))
+cm_train_small = metrics.confusion_matrix(label_train,model.predict(data_train_small))
+cm_train_small = metrics.confusion_matrix(label_test,model.predict(data_test_small))
+'''可视化混淆矩阵'''
+print('{:↓^40}'.format('混淆矩阵---训练数据集(放大30倍)'))
+cmPlot(label_train,model.predict(data_train))
+print('{:↓^40}'.format('混淆矩阵---测试数据集(放大30倍)'))
+cmPlot(label_test,model.predict(data_test))
+print('{:↓^40}'.format('混淆矩阵---原始数据集(不放大)'))
+cmPlot(label_train,model.predict(data_train_small))
+cmPlot(label_test,model.predict(data_test_small))

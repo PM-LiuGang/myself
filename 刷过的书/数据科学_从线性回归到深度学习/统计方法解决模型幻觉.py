@@ -1,89 +1,147 @@
 # -*- coding: UTF-8 -*-
 """
 此脚本用于如何使用统计方法解决模型幻觉
+遗留：已定义好的函数，再次加入注释的时候，提示缩进错误，下次预先留出注释的位置，可规避
+coef与P>|t|(>0.005 or <0.005)的关系
+------------------------------------
+模型幻觉：在搭建模型的过程中，我们往往会从已知的特征中提取更多新的特征，并以此搭建
+更为复杂的模型，但是模型越复杂，越会值其本身掉入不断“自我催眠，强化偏见”的过程，从而
+引起过度拟合的问题。如果将毫不相关的变量加入到模型中，也会得到相应的参数估计值，而这
+个估计值几乎不可能为0，这就造成了所谓的“模型幻觉”。模型幻觉会引起模型参数的不可靠，
+更严重的是使得原本可能较为正确的估计扭曲为错误，比如将原来变量的正效应估计为负效应
+（变量对应的参数为正时成为正效应，否则为负效应）
 """
 
 import numpy as np 
 import statsmodels.api as sm 
-import matplotlib.pyplot as plt 
+#import matplotlib.pyplot as plt 
 import pandas as pd 
 
+
 def generate_randomvar():
-	np.random.seed(4873)
-	#返回20个随机整数
-	return np.random.randint(2,size=20)
+    """
+    生成数据标签
+    
+    Returns
+    -------
+    return : np.array
+        np.array([0,1,0,1,0,1,0,1.....])
+    """
+    np.random.seed(4873)
+    return np.random.randint(2, size=20)
 
 def evuluate_model(res):
-	print(res.summary())
-	print('检验z的系数等于0')
-	print(res.f_test('z=0'))
-	print('检验建设的const的系数等于0')
-	print(res.f_test('const=0'))
-	print('检测假设z和const的系数同时等于0')
-	print(res.f_test(['z=0','const=0']))
+    """
+    
+    Parameters
+    ----------
+    res : model
+        训练好的模型
+        
+    Returns
+    -------
+    检验假设结果
+    """
+    print(res.summary())
+    print('检验z的系数等于0')
+    print(res.f_test('z=0')) # 新添加的变量名称
+    print('检验假设的const的系数等于0') # 常数是否等于0
+    print(res.f_test('const=0'))
+    print('检测假设z和const的系数同时等于0')
+    print(res.f_test(['z=0','const=0'])) # T检验只能是单变量
+    
 
 def train_model(x,y):
-	model = sm.OLS(y,x)
-	res = model.fit()
-	return res 
+    """
+    最小二乘法训练模型
+    
+    Parameters
+    ----------
+    x : pd.DataFrame
+        trained data
+    y : pd.DataFrame
+        data's label
+        
+    Returns
+    -------
+    res : model
+        训练好的模型
+    """
+    model = sm.OLS(y,x)
+    res = model.fit()
+    return res 
 
 def confidence_interval(data):
-	features = ['x']
-	labels = ['y']
-#	features = data['x']
-#	labels = data['y']
-	Y = data[labels]
-	_X = data[features]
-#	yy = data[labels]
-#	xx = data[features]
-#	features应该是两列x，z
-	_X['z'] = generate_randomvar()
-#	为什么是往features add_constant
-	X = sm.add_constant(_X)
-	res = train_model(X,Y)
-	evuluate_model(res)
+    """
+    加入新变量，再生成模型
+    """
+    features = ['x']
+    labels = ['y']
+    dataLabels = data[labels]
+    dataFeatures = data[features]
+    dataFeatures['z'] = generate_randomvar()
+    X = sm.add_constant(dataFeatures) # 给数据特征添加常数
+    res = train_model(X,dataLabels)
+    evuluate_model(res)
 
 def generate_data():
-	np.random.seed(5320)
-	x = np.array(range(0,20))/2
-	error = np.round(np.random.randn(20),2)
-	y = 0.05 * x + error
-	z = np.zeros(20) + 1
-	return pd.DataFrame({'x':x,'y':y,'z':z})
+    """
+    生成数据框，其中包含x，y，z列，线性关系y=0.05*x+error，z是标签
+    
+    Returns
+    -------
+    returns : pd.DataFrame
+    
+        x y z
+    r1  . . 1
+    r2  . . 1
+    r3  . . 1
+    
+    """
+    np.random.seed(5320)
+    x = np.array(range(0,20))/2
+    error = np.round(np.random.randn(20),2)
+    y = 0.05 * x + error # 误差满足正态分布
+    z = np.zeros(20) + 1
+    return pd.DataFrame({'x':x,'y':y,'z':z})
+
 
 def wrong_coef():
-	#特征x z，标签 z
-#	features = ['x','z']
-#	labels = ['y']
-	features = ['x','z']
-	labels = ['y']
-	data = generate_data()
-	x_shift = data[features]
-	y_shift = data[labels]
-	#查看一个变量和两个变量的模型报告
-	model = sm.OLS(y_shift,x_shift['x'])
-	res = model.fit()
-	print('--------------没有加入新变量时---------------')
-	print(res.summary())
-	model_1 = sm.OLS(y_shift,x_shift)
-	res_1 = model_1.fit()
-	print('---------------加入新变量后------------------')
-	print(res_1.summary())
+    """
+    通过模型参数结果，对比加入变量前后的模型    
+    """
+    features = ["x","z"]
+    labels = ["y"]
+    data = generate_data()
+    dataFeaturs = data[features]
+    dataLabels = data[labels]
+    
+    modelSingle = sm.OLS(dataLabels, dataFeaturs["x"])
+    resSingle = modelSingle.fit()
+    print("{:#^60}".format("没有加入新变量时,只加入(x)"))
+    print(resSingle.summary())
+    
+    modelAll = sm.OLS(dataLabels, dataFeaturs)
+    resAll = modelAll.fit()
+    print("{:#^60}".format("加入新变量后,加入(x,z)"))
+    print(resAll.summary())
 
 def read_data(file):
 	data = pd.read_csv(file)
 	return data 
 
 if __name__ == "__main__":
-	data = read_data('simple_example.csv')
-	print("**************************************************")
-	print("加入不相关的新变量，新变量的系数被错误估计为不等于0")
-	print("**************************************************")
-	confidence_interval(data)
-	print("**********************************************")
-	print("加入不相关的新变量，旧变量系数的符号被错误估计")
-	print("**********************************************")
-	wrong_coef()
+    data = read_data('simple_example.csv')
+    print("*" * 65)
+    print("加入不相关的新变量，新变量(z)的系数被错误估计为不等于0")
+    print("*" * 65)
+    confidence_interval(data)
+    print("")
+    print("|" * 65)
+    print("*" * 65)
+    print("加入不相关的新变量，旧变量系数的符号被错误估计")
+    print("*" * 65)
+    wrong_coef()
 
 
 
