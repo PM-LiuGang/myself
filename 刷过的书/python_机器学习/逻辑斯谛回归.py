@@ -90,7 +90,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 if __name__ == "__main__":
     z = np.arange(-7,7,0.1)
     logisticDistributionVisual(z)
-    xTrainStd, xTestStd, xCombinedStd, yCombine = dataCollation(X_train, X_test, y_train, y_test)
+    xTrainStd, xTestStd, xCombinedStd, yCombine = dataCollation(X_train, 
+                                                                X_test, 
+                                                                y_train, 
+                                                                y_test)
     lr = LogisticRegression(C=1000.0,random_state=0)
     lr.fit(xTrainStd, y_train)
     plot_decision_regions(xCombinedStd,yCombine,
