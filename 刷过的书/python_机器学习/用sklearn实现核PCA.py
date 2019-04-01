@@ -9,10 +9,10 @@ Review:
 遗留：
 """
 #import numpy as np
-import matplotlib.pyplot as plt
-
 from sklearn.datasets import make_moons
 from sklearn.decomposition import KernelPCA
+
+import matplotlib.pyplot as plt
 
 X, y = make_moons(n_samples=100, random_state=123)
 scikitKpca = KernelPCA(n_components=2, kernel='rbf', gamma=15)
