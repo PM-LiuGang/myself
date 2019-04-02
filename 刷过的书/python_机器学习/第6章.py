@@ -70,14 +70,14 @@ for k, (train, test) in enumerate(kfold):  # 170, 17
     scores.append(score)
     print("Fold:%2d, Class dist.: %s, Acc: %.3f" %
           (k + 1, np.bincount(y_train[train]), score))
-print("\n交叉验证的准确率: %.3f +/- %.3f" % (np.mean(scores), np.std(scores)))
+print("交叉验证的准确率: %.3f +/- %.3f" % (np.mean(scores), np.std(scores)))
 print("开始分层交叉验证(K折交叉验证得分器，这种方法更为简洁)....")
 scores = cross_val_score(estimator=pipe_lr,
                          X=X_train,
                          y=y_train,
                          cv=10,
                          n_jobs=1)
-print("交叉验证的准确率: %.3f +/- %.3f/n" % (np.mean(scores), np.std(scores)))
+print("交叉验证的准确率: %.3f +/- %.3f\n" % (np.mean(scores), np.std(scores)))
 
 print("**************开始6.3.1章节**************")
 print("用学习曲线调试算法")
@@ -94,21 +94,14 @@ testMean = np.mean(testScore, axis=1)
 testStd = np.std(testScore, axis=1)
 
 fig = plt.figure(dpi=80)
-plt.plot(trainSize, trainMean,
-         color="blue",
-         marker="o",
-         markersize=5,
+plt.plot(trainSize, trainMean, color="blue", marker="o", markersize=5,
          label="training accuracy")
 plt.fill_between(trainSize, trainMean + trainStd, trainMean - trainStd,
                  alpha=.15,
                  color="blue")
-plt.plot(trainSize, testMean,
-         color="green",
-         marker="s",
-         markersize=5,
+plt.plot(trainSize, testMean, color="green", marker="s", markersize=5,
          label="validation accuracy")
-plt.fill_between(trainSize, testMean + testStd, testMean - testStd,
-                 alpha=.15,
+plt.fill_between(trainSize, testMean + testStd, testMean - testStd, alpha=.15,
                  color="green")
 plt.grid()
 plt.xlabel("训练样本数")
@@ -130,21 +123,14 @@ testMean = np.mean(testScores, axis=1)
 testStd = np.std(testScores, axis=1)
 
 fig1 = plt.figure(dpi=80)
-plt.plot(param_range, trainMean,
-         color="blue",
-         marker="o",
-         markersize=5,
+plt.plot(param_range, trainMean, color="blue", marker="o", markersize=5,
          label="训练准确率")
 plt.fill_between(param_range, trainMean + trainStd, trainMean - trainStd,
                  alpha=.15,
                  color="blue")
-plt.plot(param_range, testMean,
-         color="green",
-         marker="s",
-         markersize=5,
+plt.plot(param_range, testMean, color="green", marker="s", markersize=5,
          label="测试准确率")
-plt.fill_between(param_range, testMean + testStd, testMean - testStd,
-                 alpha=.15,
+plt.fill_between(param_range, testMean + testStd, testMean - testStd,alpha=.15,
                  color="green")
 plt.grid()
 plt.xscale("log")
@@ -158,17 +144,17 @@ print("**************开始6.4章节**************")
 print("通过网格搜索为机器学习模型调优")
 pipe_svc = make_pipeline(ss, SVC(random_state=1))
 param_range = [.0001, .001, .01, .1, 1., 10., 100., 1000.]
-param_grid = [{"svc__C": param_range, "svc__kernel": ["linear"]}, # 没有svc__ warning
-              {"svc__C": param_range, "svc__kernel": ["rbf"], "svc__gamma": param_range}]
-gs = GridSearchCV(estimator=pipe_svc,
-                  param_grid=param_grid,
+param_grid = [{"svc__C": param_range, "svc__kernel": ["linear"]}, # must svc__
+              {"svc__C": param_range, "svc__kernel": ["rbf"], 
+               "svc__gamma": param_range}]
+gs = GridSearchCV(estimator=pipe_svc, param_grid=param_grid, 
                   scoring="accuracy",
                   iid=True,  # furture change
                   cv=10,
                   n_jobs=1)
 gs = gs.fit(X_train, y_train)
-print("通过网格搜素后，最好模型的得分: /n",gs.best_score_)
-print("通过网格搜索后，最好模型的参数: /n",gs.best_params_)
+print("通过网格搜素后，最好模型的得分: \n",gs.best_score_)
+print("通过网格搜索后，最好模型的参数: \n",gs.best_params_)
 
 clf = gs.best_estimator_
 clf.fit(X_train, y_train)
@@ -183,7 +169,7 @@ scores = cross_val_score(gs, X_train, y_train,
                          scoring="accuracy",
                          cv=5)
 print("支持向量机模型的嵌套式交叉验证模型")
-print("CV accuracy: %.3f +/= %.3f" % (np.mean(scores), np.std(scores)))
+print("CV accuracy: %.3f +/= %.3f\n" % (np.mean(scores), np.std(scores)))
 gs = GridSearchCV(estimator=DecisionTreeClassifier(random_state=0),
                   param_grid=[{"max_depth": [1, 2, 3, 4, 5, 6, 7, None]}],
                   scoring="accuracy",
@@ -193,7 +179,7 @@ scores = cross_val_score(gs, X_train, y_train,
                          scoring="accuracy",
                          cv=5)
 print("决策树模型验证模型")
-print("CV accuracy: %.3f +/= %.3f/n" % (np.mean(scores), np.std(scores)))
+print("CV accuracy: %.3f +/= %.3f\n" % (np.mean(scores), np.std(scores)))
 
 print("**************开始6.5章节**************")
 print("6.5.1混淆矩阵分析")
@@ -215,7 +201,7 @@ plt.xlabel("预测分类标签")
 plt.ylabel("真实分类标签")
 plt.show()
 
-print("/n6.5.2优化分类模型的准确度和召回率")
+print("6.5.2优化分类模型的准确度和召回率")
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score, f1_score
 
@@ -226,15 +212,13 @@ print("F1-得分: %.3f" % f1_score(y_true=y_test, y_pred=y_pred))
 from sklearn.metrics import make_scorer, f1_score
 scorer = make_scorer(f1_score, # 性能矩阵或损失函数
                      pos_label=0) # ?
-gs = GridSearchCV(estimator=pipe_svc,
-                  param_grid=param_grid,
-                  scoring=scorer,
+gs = GridSearchCV(estimator=pipe_svc,param_grid=param_grid,scoring=scorer,
                   cv=10)
 gs = gs.fit(X_train, y_train)
-print("通过网格搜素后，最好模型的得分: /n",gs.best_score_)
-print("通过网格搜索后，最好模型的参数: /n",gs.best_params_)
+print("通过网格搜素后，最好模型的得分:\n",gs.best_score_)
+print("通过网格搜索后，最好模型的参数:\n",gs.best_params_)
 
-print("/n6.5.3-ROC图")
+print("6.5.3-ROC图")
 from sklearn.metrics import roc_curve, auc
 from scipy import interp # 一维线性内插法
 
@@ -249,29 +233,21 @@ all_tpr = []
 for i ,(train, test) in enumerate(cv): # cv = [((113),(57)),((113),(57)),((113),(57))]
     probas = pipe_lr.fit(X_train2[train], # probas.shape = (56,2)
                          y_train[train]).predict_proba(X_train2[test])
-    fpr, tpr, thresholds = roc_curve(y_train[test], 
-                                     probas[:, 1], # 为什么只取第二列
-                                     pos_label=1)
+    # roc_curve(y_true真实标签, scores多种概率估计值, pos_label积极标签)
+    fpr, tpr, thresholds = roc_curve(y_train[test], probas[:, 1], pos_label=1)
     mean_tpr += interp(mean_fpr, fpr, tpr) # X1,X,Y
     mean_tpr[0] = .0
     roc_auc = auc(fpr, tpr)
-    plt.plot(fpr, tpr, 
-             label="ROC fold %d (area= %.2f)" % (i+1, roc_auc))
+    plt.plot(fpr, tpr, label="ROC 折 %d (面积= %.2f)" % (i+1, roc_auc))
 
-plt.plot([0, 1], [0, 1], 
-         linestyle="--", 
-         color=(.6, .6, .6), 
-         label="随机猜测")
+plt.plot([0, 1], [0, 1], linestyle="--", color=(.6, .6, .6), label="随机猜测")
 
 mean_tpr /= len(cv)
 mean_tpr[-1] = 1.0
 mean_auc = auc(mean_fpr, mean_tpr)
-plt.plot(mean_fpr, mean_tpr, 
-         "k--", 
+plt.plot(mean_fpr, mean_tpr, "k--", 
          label="mean ROC (area = %.2f)" % mean_auc, lw=2)
-plt.plot([0, 0, 1], [0, 1, 1], 
-         linestyle=":", 
-         color="black",
+plt.plot([0, 0, 1], [0, 1, 1], linestyle=":", color="black",
          label="Prefect Performance")
 plt.xlim([-0.05, 1.05])
 plt.ylim([-0.05, 1.05])    
