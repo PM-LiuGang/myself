@@ -55,4 +55,4 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
     plt.xlabel('Petal length [standardized]')
     plt.ylabel('Petal width [standardized]')
     plt.legend(loc='upper left')
-    # plt.show()
+    plt.show()

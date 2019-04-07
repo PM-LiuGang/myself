@@ -261,3 +261,22 @@ plt.xlabel("False Positive Rate")
 plt.ylabel("True Positive Rate")
 plt.legend(loc="best")
 plt.show()
+
+print("**************开始6.5章节**************")
+print("处理类的不平衡问题")
+x_imb = np.vstack((feature[label==0], feature[label==1][:40])) 
+y_imb = np.hstack((label[label==0], label[label==1][:40]))
+y_pred = np.zeros(y_imb.shape[0])
+print(np.mean(y_pred == y_imb) * 100)
+from sklearn.utils import resample
+print("Number of class 1 sample before:",x_imb[y_imb == 1].shape[0])
+x_upsampled, y_upsampled = resample(x_imb[y_imb == 1],
+                                    y_imb[y_imb == 1],
+                                    replace=True,
+                                    n_samples=x_imb[y_imb == 0].shape[0],
+                                    random_state=123)
+print("Number of class 1 sample after:", x_upsampled.shape[0])
+x_bal = np.vstack((feature[label == 0], x_upsampled))
+y_bal = np.hstack((label[label == 0], y_upsampled))
+y_pred = np.zeros(y_bal.shape[0])
+np.mean(y_pred == y_bal) * 100
