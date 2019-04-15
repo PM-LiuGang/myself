@@ -7,6 +7,7 @@
 测试内容：自动执行采集任务，并打印采集仪生成文件中的数据码型
 ！需要提前下载好chromedriver.exe放到chrome浏览器下的application下
 ！放到python/Scripts下
+
 #63个端口的xpath
 #//*[@id="content"]/div/div/div[4]/div/div/div/div/table/tbody/tr[1]/td[1-32]/span/div/div
 #//*[@id="content"]/div/div/div[4]/div/div/div/div/table/tbody/tr[2]/td[1-31]/span/div/div
@@ -31,6 +32,9 @@ V5:
 输入数据模型采用方向键代替:(V6支持)
 输入y or n 改成不区分大小写
 修复Bug：继续测试时，没有重置选择端口，还是用上次测试的端口有
+V6：
+通过测试发现，selenium.click()存在失效的问题，点击一次生效后，由于丢失焦点，需要重新获得焦点才能再次点击生效
+界面默认打开是端口全选勾选，端口映射不勾选，针对此进行代码调整
 ============================================
 遗留：如果由于不明原因导致上次未结束（还是采集中的状态），请手动重置未开始可点击状态
 """
@@ -56,7 +60,8 @@ except BaseException:
     wb.close()
     sys.exit()
 # 测试仪连接状态
-connectState = wb.find_element_by_xpath('//*[@id="content"]/div/div/div[1]/div[1]/div[1]/div')
+connectState = wb.find_element_by_xpath(
+    '//*[@id="content"]/div/div/div[1]/div[1]/div[1]/div')
 # 统计采集次数
 t = 1
 port1132 = [r'//*[@id="content"]/div/div/div[4]/div/div/div/div/table/tbody/tr[1]/td[' +
@@ -78,6 +83,7 @@ singlePortSelect = wb.find_element_by_xpath(
 # 端口映射
 portMap = wb.find_element_by_xpath(
     '//*[@id="content"]/div/div/div[4]/div/div/div/div/table/tbody/tr[3]/td[2]/div[2]/div')
+portMap.click()  # v6
 # 文件大小
 fileSize = wb.find_element_by_xpath(
     '//*[@id="content"]/div/div/div[1]/div[1]/div[3]/input')
@@ -207,7 +213,7 @@ while True:
 time.sleep(5)  # 等待测试仪状态更新出来
 
 while True:
-    content = [] # 采集文件的部分内容
+    content = []  # 采集文件的部分内容
     print('√检查步骤已完成，开始执行采集')
     dataModel = input("发送端的数据模型是 00、55、AA、FF、PRBS23(PP)？")
     ft = input("""是否按照*默认参数*的参数进行自动化(采集)测试?
@@ -227,17 +233,17 @@ y(Y) or n(N)：""")
         collectTimes.send_keys(defaultCollectTimes)
         savePath[0].clear()
         savePath[0].send_keys(defaultPath)
-        if portMapValue == "ui checked checkbox components-PortusVC12-style__chk_history--1nCln":  # 已选中
-            portMap.click()
-            portMap.click()  # 将所有端口重置为白色未选中
-            for i in defaultPortSelect:
-                portSelect = wb.find_element_by_xpath(i)
-                portSelect.click()
-        elif portMapValue == 'ui checkbox components-PortusVC12-style__chk_history--1nCln':  # 未选中
-            portMap.click()
-            for i in defaultPortSelect:
-                portSelect = wb.find_element_by_xpath(i)
-                portSelect.click()
+#        if portMapValue == "ui checked checkbox components-PortusVC12-style__chk_history--1nCln":  # 已选中
+#            portMap.click()  # 有不生效的时候
+#            portMap.click()  # 将所有端口重置为白色未选中
+#            for i in defaultPortSelect:
+#                portSelect = wb.find_element_by_xpath(i)
+#                portSelect.click()
+#        elif portMapValue == 'ui checkbox components-PortusVC12-style__chk_history--1nCln':  # 未选中
+#            portMap.click()
+        for i in defaultPortSelect:
+            portSelect = wb.find_element_by_xpath(i)
+            portSelect.click()
         try:
             buttonStart.click()
         except BaseException:
@@ -258,6 +264,9 @@ y(Y) or n(N)：""")
             sys.exit()
         content = getContent(path, threshold=200)
         dataModelJust(dataModel, content)
+        for i in defaultPortSelect:
+            portSelect = wb.find_element_by_xpath(i)
+            portSelect.click()        
     elif ft == "n" or ft == "N":
         print('请准确按照格式输入格式准确的参数，输入错误请ctrl+c中断')
         modifyCollectTimes = input("请输入采集次数（1-99）：")
@@ -269,11 +278,11 @@ y(Y) or n(N)：""")
 1-8代表选择1到8端口
 1,8代表选择了1和8端口
 请输入你想采集的端口号: """)
-        if portMapValue == "ui checked checkbox components-PortusVC12-style__chk_history--1nCln":  # 已选中
-            portMap.click()
-            portMap.click()  # 将所有端口重置为白色未选中
-        elif portMapValue == 'ui checkbox components-PortusVC12-style__chk_history--1nCln':  # 未选中
-            portMap.click()
+#        if portMapValue == "ui checked checkbox components-PortusVC12-style__chk_history--1nCln":  # 已选中
+#            portMap.click()
+#            portMap.click()  # 将所有端口重置为白色未选中
+#        elif portMapValue == 'ui checkbox components-PortusVC12-style__chk_history--1nCln':  # 未选中
+#            portMap.click()
         if ',' in modifyCollectSelect:
             portSelect = modifyCollectSelect.split(',')
             portSelect = [port[int(i) - 1] for i in portSelect]
@@ -311,11 +320,28 @@ y(Y) or n(N)：""")
             sys.exit()
         content = getContent(path, threshold=200)
         dataModelJust(dataModel, content)
+        
+        # v6 无法判断走哪个分支，只能把代码都加过来
+        if ',' in modifyCollectSelect:
+            portSelect = modifyCollectSelect.split(',')
+            portSelect = [port[int(i) - 1] for i in portSelect]
+            for i in portSelect:
+                portSelect = wb.find_element_by_xpath(i)
+                portSelect.click()
+        elif '-' in modifyCollectSelect:
+            portSelect = modifyCollectSelect.split('-')
+            portSelectStart = int(portSelect[0]) - 1
+            portSelectEnd = int(portSelect[1])
+            for i in port[portSelectStart: portSelectEnd]:
+                portSelect = wb.find_element_by_xpath(i)
+                portSelect.click()       
     time.sleep(2)
     continueTest = input("是否继续测试？  y(Y) or n(N)? ")
     if continueTest == "y" or continueTest == "Y":
-        portMap.click()
-        portMap.click()  # 将所有端口重置为白色未选中
+ 
+#        portMap.click()
+#        time.sleep(1)
+#        portMap.click()  # 将所有端口重置为白色未选中
         while True:
             if startKey.get_attribute("class") == "ui tiny compact button":
                 print("√开始按键处于可点击状态")
@@ -331,4 +357,4 @@ y(Y) or n(N)：""")
         break
 wb.close()
 #conitue = input("请按回车键，退出窗口~")
-os.exit()
+sys.exit()
