@@ -8,7 +8,13 @@ Review:
 """
 import numpy as np
 
-def ols(a):
+def ols(a, p):
+    """
+    Parameters
+    ----------
+    a : ndarray 
+    p : 矩阵的维数，只支持方阵
+    """
     eigValues, eigVectors = np.linalg.eig(a)
     eigVectors = np.round(eigVectors,2)
     fe = eigVectors[0]
@@ -31,5 +37,3 @@ def ols(a):
     print(np.c_[fe, se, te])
     print(eigValues)
     print(np.linalg.inv(np.c_[fe, se, te]))
-    
-ols(a)
