@@ -25,6 +25,8 @@ for sheet in sheet_names[4 : ]:
         df1 = df[i]
         df1.fillna('Null', inplace=True)
         df1_str = '|'.join(map(str, df1.to_list()))
-        with open(os.path.join(path, sheet+ '_' + str(i) + '.csv'), 'w', encoding='utf8') as f:
+        with open(os.path.join(path, sheet+ '_' + str(i) + '.csv'), 
+                  'w', 
+                  encoding='utf8') as f:
             f.write(df1_str)
     
