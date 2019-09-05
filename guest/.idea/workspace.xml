@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bfd6e23-a48c-4c11-af8e-6ccc15323fb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/guest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/guest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/guest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/sign/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +35,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/sign/templates/event_manage.html" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\myself\guest\personly" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
