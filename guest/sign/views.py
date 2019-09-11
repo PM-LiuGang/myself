@@ -22,6 +22,8 @@ def login_action(request):
         if user is not None:
             auth.login(request, user)
             response = HttpResponseRedirect('/event_manage/')
+            #  response.set_cookie('user', username, 3600)
+            #  return HttpResponseRedirect('/event_manage.html')
             request.session['user'] = username
             return response
         else:
@@ -81,7 +83,7 @@ def sign_index(request, eid):
 @login_required
 def sign_index_action(request, eid):
     event = get_object_or_404(Event, id=eid)
-    phone = request.POST.get('phone', '')
+    phone = request.POST.get('phone','')
     print(phone)
 
     result = Guest.objects.filter(phone=phone)
@@ -96,7 +98,7 @@ def sign_index_action(request, eid):
     result = Guest.objects.get(phone=phone, event_id=eid)
     if result.sign:
         return render(request, 'sign_index.html', {'event': event,
-                                                   'hint': 'user has sign in'})
+                                                   'hint': 'user has sign in.'})
     else:
         Guest.objects.filter(phone=phone, event_id=eid).update(sign='1')
         return render(request, 'sign_index.html', {'event': event,

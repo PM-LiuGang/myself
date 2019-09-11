@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     'bootstrap3',
 ]
 
-# del 'django.middleware.csrf.CsrfViewMiddleware',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'guest.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-# SET sql_mode='NO_ENGINE_SUBSTITUTION, AUTO....'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
         'NAME': 'guest',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'OPTIONS': {'init_command': "SET sql_mode='NO_ENGINE_SUBSTITUTION'"}
+        'USER' : 'root',
+        'PASSWORD' : '123456',
+        'OPTIONS': {'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"}
     }
 }
 

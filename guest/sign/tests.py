@@ -13,6 +13,7 @@ python manage.py test -p test*.py
 from django.test import TestCase
 from sign.models import Event, Guest
 from django.contrib.auth.models import User
+from sign.models import Event
 
 
 class ModelTest(TestCase):
@@ -53,13 +54,13 @@ class LoginActionTest(TestCase):
         test_data = {'username': '', 'password': ''}
         response = self.client.post('/login_action/', data=test_data)
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'username or password error !', response.content)
+        self.assertIn(b'username or password error!', response.content)
 
     def test_login_action_username_password_error(self):
         test_data = {'username': 'abc', 'password': '123'}
         response = self.client.post('/login_action/', data=test_data)
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'username or password error !', response.content)
+        self.assertIn(b'username or password error!', response.content)
 
     def test_login_action_success(self):
         test_data = {'username': 'admin', 'password': 'admin123456'}
@@ -76,7 +77,7 @@ class EventManageTest(TestCase):
 
     def test_event_manage_success(self):
         response = self.client.post('/login_action/', data=self.login_user)
-        response = self.client.post('/search_name_event/', {'name': 'xiaomi5'})
+        response = self.client.post('/search_name/', {'name': 'xiaomi5'})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'xiaomi5', response.content)
         self.assertIn(b'beijing', response.content)
@@ -113,31 +114,29 @@ class SignIndexActionTest(TestCase):
         Event.objects.create(id=2, name='oneplus4', limit=2000, address='shenzhen', status=1,
                              start_time='2017-8-10 12:30:00')
         Guest.objects.create(realname='alen', phone=18611001100, email='alen@mail.com', sign=0, event_id=1)
-        Guest.objects.create(realname='una', phone=18611001001, email='una@mail.com', sign=0, event_id=2)
+        Guest.objects.create(realname='una', phone=18611001001, email='alen@mail.com', sign=0, event_id=2)
         self.login_user = {'username': 'admin', 'password': 'admin123456'}
 
     def test_sign_index_action_phone_null(self):
         response = self.client.post('/login_action/', data=self.login_user)
-        response = self.client.post('/sign_index_action/1/', {'phone': ''})
+        response = self.client.post('/sign_index_action/1/', {'phone':''})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'phone error', response.content)
 
     def test_sign_index_action_phone_or_event_id_error(self):
         response = self.client.post('/login_action/', data=self.login_user)
-        response = self.client.post('/sign_index_action/2/', {'phone': '18611001100'})
+        response = self.client.post('/sign_index_action/2/', {'phone':'18611001100'})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'event id or phone error.', response.content)
 
-    def test_sign_index_action_sign_success(self):
-        response = self.client.post('/login_action/', data=self.login_user)
-        response = self.client.post('/sign_index_action/2/', {'phone': '18611001001'})
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b'sign in success!', response.content)
-
     def test_sign_index_action_user_sign_has(self):
         response = self.client.post('/login_action/', data=self.login_user)
-        response = self.client.post('/sign_index_action/2/', {'phone': '18611001001'})
-        response = self.client.post('/sign_index_action/2/', {'phone': '18611001001'})
+        response = self.client.post('/sign_index_action/2/', {'phone':'18611001001'})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'user has sign in', response.content)
 
+    def test_sign_index_action_sign_success(self):
+        response = self.client.post('/login_action/', data=self.login_user)
+        response = self.client.post('/sign_index_action/2/', {'phone':'18611001100'})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'sign in success!', response.content)
