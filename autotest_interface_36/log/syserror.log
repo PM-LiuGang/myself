@@ -1,0 +1,279 @@
+2019-09-14 16:06:46,854 opmysql.py  [line:22] ERROR (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Traceback (most recent call last):
+  File "C:/Users/admin/autotest_interface_36/common/opmysql.py", line 14, in __init__
+    self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 325, in __init__
+    self.connect()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 599, in connect
+    self._request_authentication()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 882, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 265, in caching_sha2_password_auth
+    pkt = _roundtrip(conn, data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 122, in _roundtrip
+    pkt = conn._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2019-09-14 16:06:59,555 opmysql.py  [line:22] ERROR (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Traceback (most recent call last):
+  File "C:/Users/admin/autotest_interface_36/common/opmysql.py", line 14, in __init__
+    self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 325, in __init__
+    self.connect()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 599, in connect
+    self._request_authentication()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 882, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 265, in caching_sha2_password_auth
+    pkt = _roundtrip(conn, data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 122, in _roundtrip
+    pkt = conn._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2019-09-14 16:09:10,645 opmysql.py  [line:22] ERROR (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Traceback (most recent call last):
+  File "opmysql.py", line 14, in __init__
+    self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 325, in __init__
+    self.connect()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 599, in connect
+    self._request_authentication()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 882, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 265, in caching_sha2_password_auth
+    pkt = _roundtrip(conn, data)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 122, in _roundtrip
+    pkt = conn._read_packet()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2019-09-14 16:09:34,902 opmysql.py  [line:22] ERROR (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Traceback (most recent call last):
+  File "opmysql.py", line 14, in __init__
+    self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 325, in __init__
+    self.connect()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 599, in connect
+    self._request_authentication()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 882, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 265, in caching_sha2_password_auth
+    pkt = _roundtrip(conn, data)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 122, in _roundtrip
+    pkt = conn._read_packet()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "D:\Program Files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2019-09-14 18:20:37,890 opmysql.py  [line:22] ERROR (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Traceback (most recent call last):
+  File "C:/Users/admin/autotest_interface_36/common/opmysql.py", line 14, in __init__
+    self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 325, in __init__
+    self.connect()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 599, in connect
+    self._request_authentication()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 882, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 265, in caching_sha2_password_auth
+    pkt = _roundtrip(conn, data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\_auth.py", line 122, in _roundtrip
+    pkt = conn._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2019-09-15 16:48:06,644 opmysql.py  [line:57] ERROR (1054, "Unknown column 'exe_mode' in 'field list'")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 45, in select_one
+    rows_affect = self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'exe_mode' in 'field list'")
+2019-09-15 16:58:38,083 connectionpool.py  [line:206] DEBUG Starting new HTTP connection (1): ip.taobao.com:80
+2019-09-15 16:58:38,215 connectionpool.py  [line:396] DEBUG http://ip.taobao.com:80 "GET /service/getIpInfo.php?ip=63.223.108.4 HTTP/1.1" 200 None
+2019-09-15 20:51:17,598 opmysql.py  [line:38] ERROR (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 29, in op_sql
+    self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+2019-09-15 20:51:17,600 compare.py  [line:95] ERROR 'dict' object has no attribute 'startswith'
+Traceback (most recent call last):
+  File "C:/Users/admin/autotest_interface_36/common/compare.py", line 77, in __recur_params
+    if result_interface.startswith('{') and isinstance(result_interface, str):
+AttributeError: 'dict' object has no attribute 'startswith'
+2019-09-15 20:57:49,055 opmysql.py  [line:38] ERROR (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 29, in op_sql
+    self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+2019-09-15 20:57:49,057 compare.py  [line:95] ERROR 'dict' object has no attribute 'startswith'
+Traceback (most recent call last):
+  File "C:/Users/admin/autotest_interface_36/common/compare.py", line 77, in __recur_params
+    if result_interface.startswith('{') and isinstance(result_interface, str):
+AttributeError: 'dict' object has no attribute 'startswith'
+2019-09-15 21:02:32,228 opmysql.py  [line:38] ERROR (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 29, in op_sql
+    self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+2019-09-15 21:08:52,589 opmysql.py  [line:38] ERROR (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 29, in op_sql
+    self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+2019-09-15 21:10:57,358 opmysql.py  [line:38] ERROR (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 29, in op_sql
+    self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+2019-09-15 21:11:47,153 opmysql.py  [line:38] ERROR (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+Traceback (most recent call last):
+  File "C:\Users\admin\autotest_interface_36\common\opmysql.py", line 29, in op_sql
+    self.cur.execute(condition)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 170, in execute
+    result = self._query(query)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\cursors.py", line 328, in _query
+    conn.query(q)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 517, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_query_result
+    result.read()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 1075, in read
+    first_packet = self.connection._read_packet()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\connections.py", line 684, in _read_packet
+    packet.check_error()
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\protocol.py", line 220, in check_error
+    err.raise_mysql_exception(self._data)
+  File "d:\program files (x86)\python37\lib\site-packages\pymysql\err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'result_code_compare=1 where id=1' at line 1")
+2019-09-15 21:17:00,494 compare.py  [line:95] ERROR 'dict' object has no attribute 'startswith'
+Traceback (most recent call last):
+  File "C:/Users/admin/autotest_interface_36/common/compare.py", line 77, in __recur_params
+    if result_interface.startswith('{') and isinstance(result_interface, str):
+AttributeError: 'dict' object has no attribute 'startswith'
