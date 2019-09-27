@@ -1,23 +1,44 @@
 # -*- coding: utf-8 -*-
 #__author__ = 'PM_LiuGang'
-
+#review 190926
 import logging, pymysql
 import sys
-sys.path.append(r'C:\Users\admin\autotest_interface_36\public')
 import config
+
+sys.path.append(r'C:\Users\admin\autotest_interface_36\public')
+
 
 class OperationDbInterface(object):
     #  初始化数据库连接
-    def __init__(self, host_db='127.0.0.1', user_db='root', passwd_db='123456', name_db='test_interface', port_db=3306, link_type=0):
+    def __init__(self,
+                 host_db='127.0.0.1',
+                 user_db='root',
+                 passwd_db='123456',
+                 name_db='test_interface',
+                 port_db=3306,
+                 link_type=0):
         try:
             if link_type == 0:
-                self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8', cursorclass=pymysql.cursors.DictCursor)
+                self.conn = pymysql.connect(host=host_db,
+                                            user=user_db,
+                                            passwd=passwd_db,
+                                            db=name_db,
+                                            port=port_db,
+                                            charset='utf8',
+                                            cursorclass=pymysql.cursors.DictCursor)
             else:
-                self.conn = pymysql.connect(host=host_db, user=user_db, passwd=passwd_db, db=name_db, port=port_db, charset='utf8')
+                self.conn = pymysql.connect(host=host_db,
+                                            user=user_db,
+                                            passwd=passwd_db,
+                                            db=name_db,
+                                            port=port_db,
+                                            charset='utf8')
             self.cur = self.conn.cursor()
         except pymysql.Error as e:
             print('创建数据库失败 | from Mysql Error %d: %s' % (e.args[0], e.args[1]))
-            logging.basicConfig(filename = config.src_path + '/log/syserror.log', level = logging.DEBUG, format='%(asctime)s %(filename)s  [line:%(lineno)d] %(levelname)s %(message)s')
+            logging.basicConfig(filename = config.src_path + '/log/syserror.log',
+                                level = logging.DEBUG,
+                                format='%(asctime)s %(filename)s  [line:%(lineno)d] %(levelname)s %(message)s')
             logger = logging.getLogger(__name__)
             logger.exception(e)
 

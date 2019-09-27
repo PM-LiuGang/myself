@@ -4,6 +4,8 @@
 http_request是主方法，直接供外部调用
 __http_get, __http_post是实际底层分类调用的方法
 '''
+# review 190926
+
 import requests, logging, sys
 sys.path.append('../')
 from common import opmysql
@@ -102,7 +104,11 @@ class RequestInterface(object):
 
 if __name__ == '__main__':
     test_interface = RequestInterface()
-    test_db = opmysql.OperationDbInterface(host_db='127.0.0.1', user_db='root', passwd_db='123456', name_db='test_interface', port_db=3306, link_type=0)
+    test_db = opmysql.OperationDbInterface(host_db='127.0.0.1',
+                                           user_db='root',
+                                           passwd_db='123456',
+                                           name_db='test_interface',
+                                           port_db=3306, link_type=0)
     sen_sql = 'select exe_mode, url_interface, header_interface, params_interface from case_interface where id=1'
     params_interface = test_db.select_one(sen_sql)
     if params_interface['code'] == '0000':
@@ -112,7 +118,10 @@ if __name__ == '__main__':
         param_interface=params_interface['data']['params_interface']
         type_interface=params_interface['data']['exe_mode']
         if url_interface !='' and headerdata !='' and param_interface !='' and type_interface !='':
-            result=test_interface.http_request(interface_url=url_interface,headerdata=headerdata,interface_param=param_interface,request_type=type_interface)
+            result=test_interface.http_request(interface_url=url_interface,
+                                               headerdata=headerdata,
+                                               interface_param=param_interface,
+                                               request_type=type_interface)
             if result['code']=='0000':
                 result_resp=result['data']
                 test_db.op_sql("UPDATE case_interface SET result_interface='%s' WHERE id=1" % result_resp)
