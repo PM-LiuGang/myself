@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -9,7 +10,6 @@ from PyQt5.QtCore import *
 import pandas as pd
 import jieba
 from pyecharts.charts import Geo, Line, Bar
-#from pyecharts import Overlap 模块已经改变了
 from wordcloud import WordCloud, ImageColorGenerator
 import matplotlib.pyplot as plt
 
@@ -70,6 +70,7 @@ class Ui_Form(object):
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
         self.comboBox = QtWidgets.QComboBox(self.horizontalLayoutWidget)
+        # self.comboBox.setGeometry(QtCore.QRect(83, 15, 120, 21))
         self.comboBox.setDuplicatesEnabled(False)
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
@@ -139,6 +140,7 @@ class Ui_Form(object):
         self.pushButton_3.setText(_translate("Form", "查看"))
         self.label_4.setText(_translate("Form", "                   词云"))
         self.pushButton_4.setText(_translate("Form", "查看"))
+
         # 电影选择事件
         self.comboBox.activated[str].connect(self.itemchange)
         # 分析功能
@@ -153,6 +155,8 @@ class Ui_Form(object):
             self.moveId = '246082'
             self.show()
             self.btnclick()
+
+
     def itemchange(self, text):
         if text =='夏洛特烦恼':
             if not os.path.isfile(d + '夏洛特烦恼词云.png'):
@@ -250,13 +254,13 @@ class Ui_Form(object):
         tomato = pd.DataFrame(columns=['date', 'score', 'city', 'comment', 'nick'])
         i = 1
         while True:
-            # print(i)
+            print(i)
             try:
                 url = 'http://m.maoyan.com/mmdb/comments/movie/'+self.moveId+'.json?_v_=yes&offset='+ str(i)
                 html = urllib.request.urlopen(url)
                 content = html.read()
                 total = json.loads(content)['total']
-                # print(total)
+                print(total)
                 if total == 0:
                     break
                 else:
@@ -301,12 +305,7 @@ class Ui_Form(object):
         city_com.reset_index(inplace=True)
         # 返回浮点数 0.01 返回到后两位
         city_com['mean'] = round(city_com['mean'], 2)
-        geo = Geo('《'+self.moveName+'》 全国热力图',
-                  title_color="#fff",
-                  title_pos="center",
-                  width=1200,
-                  height=600,
-                  background_color='#404a59')
+        geo = Geo()
         flag = True
         data = [(city_com['city'][i], city_com['count'][i]) for i in range(0, city_com.shape[0])]
         while flag:
@@ -316,13 +315,7 @@ class Ui_Form(object):
             try:
                 geo.add("", # 这很多参数都是低版本的pyecharts的，适配不了1.5.1版本
                         attr,  # data_pair
-                        value,
-                        type="heatmap",
-                        visual_range=[0, 50],
-                        visual_text_color="#fff",
-                        symbol_size=15,
-                        is_visualmap=True,
-                        is_roam=False)
+                        value,)
                 flag = False
             except ValueError as e:
                 e = str(e)
