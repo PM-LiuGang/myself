@@ -42,7 +42,9 @@ def query(date, from_station, to_station):
                 data.append(newSeat)
         return data
     # response = requests.get(url)
-    # result = response.json() # error 返回不是Json格式，没找到解析方法；网页请求返回的是json格式
+    # error 返回不是Json格式，没找到解析方法；网页请求返回的是json格式
+    # 请求到数据了么? 2019-10-17
+    # result = response.json()
     # result = result['data']['result']
     # if is_stations('stations.txt') == True:
     #     stations = eval(read('stations.txt'))
