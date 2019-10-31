@@ -12,6 +12,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -36,6 +37,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572054154172</updated>
       <workItem from="1572054157750" duration="3433000" />
+      <workItem from="1572229972477" duration="3148000" />
     </task>
     <servers />
   </component>
