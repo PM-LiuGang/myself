@@ -8,9 +8,37 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1UMrLUYFvToSho5XGSGFfMWVOrU" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\myself\reader\DataStructures\ex2\AliceBob" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -24,6 +52,130 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Python.server">
+    <configuration name="AbcExample" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="reader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex2/AbcExample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="client_01" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="reader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob/client_01.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="client_02" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="reader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob/client_02.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="reader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob/server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in Polynomial.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="reader" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/DataStructures/ex2/Polynomial.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.server" />
+        <item itemvalue="Python.client_02" />
+        <item itemvalue="Python.client_01" />
+        <item itemvalue="Python tests.Unittests in Polynomial.py" />
+        <item itemvalue="Python.AbcExample" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -35,7 +187,74 @@
       <option name="presentableId" value="Default" />
       <updated>1575177250268</updated>
       <workItem from="1575177255159" duration="2000" />
+      <workItem from="1576137080130" duration="85000" />
+      <workItem from="1576137495637" duration="46000" />
+      <workItem from="1576139039970" duration="5382000" />
+      <workItem from="1576207286376" duration="22383000" />
+      <workItem from="1576383216607" duration="3000" />
+      <workItem from="1576384513241" duration="14266000" />
+      <workItem from="1576462506802" duration="17406000" />
+      <workItem from="1576551883987" duration="12030000" />
+      <workItem from="1576592935801" duration="31119000" />
+      <workItem from="1576668942715" duration="1170000" />
+      <workItem from="1576719190370" duration="20569000" />
+      <workItem from="1576747981362" duration="1423000" />
+      <workItem from="1576821235746" duration="2975000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex2/Polynomial.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex2/Polynomial.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/reader$client_02.coverage" NAME="client_02 Coverage Results" MODIFIED="1576747366730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+    <SUITE FILE_PATH="coverage/reader$Vector.coverage" NAME="Vector Coverage Results" MODIFIED="1576408267262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_2.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_2 Coverage Results" MODIFIED="1576719488867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Flower.coverage" NAME="Flower Coverage Results" MODIFIED="1576562784907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_CreditCard_py.coverage" NAME="Unittests in CreditCard.py Coverage Results" MODIFIED="1576651307828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$CountPlot.coverage" NAME="CountPlot Coverage Results" MODIFIED="1576724650980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$27.coverage" NAME="27 Coverage Results" MODIFIED="1576483128125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_3.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_3 Coverage Results" MODIFIED="1576720077428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$C627.coverage" NAME="C627 Coverage Results" MODIFIED="1576141885783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$C629.coverage" NAME="C629 Coverage Results" MODIFIED="1576209301706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$ProgressionInherit.coverage" NAME="ProgressionInherit Coverage Results" MODIFIED="1576659105177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit_2.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit_2 Coverage Results" MODIFIED="1576669969552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$server.coverage" NAME="server Coverage Results" MODIFIED="1576748033919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_P632_py.coverage" NAME="Unittests in P632.py Coverage Results" MODIFIED="1576385748386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$C628.coverage" NAME="C628 Coverage Results" MODIFIED="1576143155390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit_1.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit_1 Coverage Results" MODIFIED="1576669709780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$29.coverage" NAME="29 Coverage Results" MODIFIED="1576487201251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$CreditCardInherit.coverage" NAME="CreditCardInherit Coverage Results" MODIFIED="1576648546690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_1.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_1 Coverage Results" MODIFIED="1576720058417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Vector_TestVertor.coverage" NAME="Unittests for Vector.TestVertor Coverage Results" MODIFIED="1576407153354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$client_01.coverage" NAME="client_01 Coverage Results" MODIFIED="1576738866622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
+    <SUITE FILE_PATH="coverage/reader$Progression.coverage" NAME="Progression Coverage Results" MODIFIED="1576484659485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_4.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_4 Coverage Results" MODIFIED="1576719500607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_P635_py.coverage" NAME="Unittests in P635.py Coverage Results" MODIFIED="1576385772394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Vector_TestVertor_test_sub.coverage" NAME="Unittests for Vector.TestVertor.test_sub Coverage Results" MODIFIED="1576566086149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_Vector_py.coverage" NAME="Unittests in Vector.py Coverage Results" MODIFIED="1576639830687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Range.coverage" NAME="Range Coverage Results" MODIFIED="1576641359580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$AbcExample.coverage" NAME="AbcExample Coverage Results" MODIFIED="1576728530416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$abc.coverage" NAME="abc Coverage Results" MODIFIED="1576636223091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_Polynomial_py.coverage" NAME="Unittests in Polynomial.py Coverage Results" MODIFIED="1576728536571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$CreditCard.coverage" NAME="CreditCard Coverage Results" MODIFIED="1576565796473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Sequence.coverage" NAME="Sequence Coverage Results" MODIFIED="1576639820376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit Coverage Results" MODIFIED="1576669569422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
   </component>
 </project>
