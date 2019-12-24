@@ -22,6 +22,9 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="reader" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -52,7 +55,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.findMax">
+  <component name="RunManager" selected="Python.sumFun">
     <configuration name="binarySum" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="linear_sum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="harmonicSeries" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -110,7 +113,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/linear_sum.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/harmonicSeries.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,7 +122,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="power_" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="str2int" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -132,7 +135,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/power_.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/str2int.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,7 +144,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="reverse" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="sumFun" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,7 +157,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/reverse.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/sumFun.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sumFun" />
+        <item itemvalue="Python.str2int" />
+        <item itemvalue="Python.harmonicSeries" />
         <item itemvalue="Python.findMax" />
         <item itemvalue="Python.binarySum" />
-        <item itemvalue="Python.power_" />
-        <item itemvalue="Python.reverse" />
-        <item itemvalue="Python.linear_sum" />
       </list>
     </recent_temporary>
   </component>
@@ -213,6 +216,7 @@
       <workItem from="1577097936328" duration="1146000" />
       <workItem from="1577102731469" duration="1189000" />
       <workItem from="1577156005680" duration="600000" />
+      <workItem from="1577158918450" duration="15447000" />
     </task>
     <servers />
   </component>
@@ -242,6 +246,11 @@
           <line>15</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex4/sumFun.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -260,6 +269,7 @@
     <SUITE FILE_PATH="coverage/reader$C627.coverage" NAME="C627 Coverage Results" MODIFIED="1576141885783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
     <SUITE FILE_PATH="coverage/reader$C629.coverage" NAME="C629 Coverage Results" MODIFIED="1576209301706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
     <SUITE FILE_PATH="coverage/reader$ProgressionInherit.coverage" NAME="ProgressionInherit Coverage Results" MODIFIED="1576659105177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$str2int.coverage" NAME="str2int Coverage Results" MODIFIED="1577182900066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit_2.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit_2 Coverage Results" MODIFIED="1576669969552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$server.coverage" NAME="server Coverage Results" MODIFIED="1576903857434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
     <SUITE FILE_PATH="coverage/reader$Unittests_in_P632_py.coverage" NAME="Unittests in P632.py Coverage Results" MODIFIED="1576385748386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
@@ -286,6 +296,8 @@
     <SUITE FILE_PATH="coverage/reader$Unittests_in_Polynomial_py.coverage" NAME="Unittests in Polynomial.py Coverage Results" MODIFIED="1576728536571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$ruler.coverage" NAME="ruler Coverage Results" MODIFIED="1576990391671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex3" />
     <SUITE FILE_PATH="coverage/reader$diskUsage.coverage" NAME="diskUsage Coverage Results" MODIFIED="1576997673323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$sumFun.coverage" NAME="sumFun Coverage Results" MODIFIED="1577188888284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$harmonicSeries.coverage" NAME="harmonicSeries Coverage Results" MODIFIED="1577173925431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$CreditCard.coverage" NAME="CreditCard Coverage Results" MODIFIED="1576565796473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Sequence.coverage" NAME="Sequence Coverage Results" MODIFIED="1576639820376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit Coverage Results" MODIFIED="1576669569422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
