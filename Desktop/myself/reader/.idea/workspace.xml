@@ -32,13 +32,22 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DataStructures/ex7/linkedADT.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1UMrLUYFvToSho5XGSGFfMWVOrU" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\myself\reader\DataStructures\ex5" />
+      <recent name="C:\Users\admin\Desktop\myself\reader\DataStructures\ex1" />
+      <recent name="C:\Users\admin\Desktop\myself\reader\DataStructures\ex3" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\myself\reader\DataStructures\ex2\AliceBob" />
     </key>
@@ -55,8 +64,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.sumFun">
-    <configuration name="binarySum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.linkedADT">
+    <configuration name="P423" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -69,7 +78,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/binarySum.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/P423.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -78,7 +87,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="findMax" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="diskUsage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,7 +100,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/findMax.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/diskUsage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,7 +109,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="harmonicSeries" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="linkedADT" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,12 +117,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex7" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/harmonicSeries.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex7/linkedADT.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +131,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="str2int" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="linkedStack" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -130,12 +139,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataStructures/ex7" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/str2int.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\admin\Desktop\myself\reader\DataStructures\ex7\linkedADT.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,7 +153,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sumFun" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="power_" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reader" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -157,7 +166,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/sumFun.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataStructures/ex4/power_.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sumFun" />
-        <item itemvalue="Python.str2int" />
-        <item itemvalue="Python.harmonicSeries" />
-        <item itemvalue="Python.findMax" />
-        <item itemvalue="Python.binarySum" />
+        <item itemvalue="Python.linkedADT" />
+        <item itemvalue="Python.linkedStack" />
+        <item itemvalue="Python.diskUsage" />
+        <item itemvalue="Python.P423" />
+        <item itemvalue="Python.power_" />
       </list>
     </recent_temporary>
   </component>
@@ -217,6 +226,14 @@
       <workItem from="1577102731469" duration="1189000" />
       <workItem from="1577156005680" duration="600000" />
       <workItem from="1577158918450" duration="15447000" />
+      <workItem from="1577243243753" duration="22970000" />
+      <workItem from="1577329935049" duration="16331000" />
+      <workItem from="1577355888345" duration="4046000" />
+      <workItem from="1577430247201" duration="9113000" />
+      <workItem from="1577498130321" duration="9268000" />
+      <workItem from="1577510807885" duration="7679000" />
+      <workItem from="1577578276227" duration="17641000" />
+      <workItem from="1577673340977" duration="11705000" />
     </task>
     <servers />
   </component>
@@ -247,60 +264,87 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DataStructures/ex4/sumFun.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/DataStructures/ex4/logDiv.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex4/inSequenceFind.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex4/binaryCalc.py</url>
+          <line>72</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex4/sequenceCalc.py</url>
+          <line>136</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DataStructures/ex4/power_.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/reader$client_02.coverage" NAME="client_02 Coverage Results" MODIFIED="1576747366730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
-    <SUITE FILE_PATH="coverage/reader$Vector.coverage" NAME="Vector Coverage Results" MODIFIED="1576408267262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_2.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_2 Coverage Results" MODIFIED="1576719488867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Flower.coverage" NAME="Flower Coverage Results" MODIFIED="1576562784907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$Unittests_in_CreditCard_py.coverage" NAME="Unittests in CreditCard.py Coverage Results" MODIFIED="1576651307828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$CountPlot.coverage" NAME="CountPlot Coverage Results" MODIFIED="1576724650980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$power_.coverage" NAME="power_ Coverage Results" MODIFIED="1577075341510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
-    <SUITE FILE_PATH="coverage/reader$findMax.coverage" NAME="findMax Coverage Results" MODIFIED="1577098772178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
-    <SUITE FILE_PATH="coverage/reader$27.coverage" NAME="27 Coverage Results" MODIFIED="1576483128125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_3.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_3 Coverage Results" MODIFIED="1576720077428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$binarySum.coverage" NAME="binarySum Coverage Results" MODIFIED="1577084043298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$power_.coverage" NAME="power_ Coverage Results" MODIFIED="1577354324612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$C627.coverage" NAME="C627 Coverage Results" MODIFIED="1576141885783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
-    <SUITE FILE_PATH="coverage/reader$C629.coverage" NAME="C629 Coverage Results" MODIFIED="1576209301706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
-    <SUITE FILE_PATH="coverage/reader$ProgressionInherit.coverage" NAME="ProgressionInherit Coverage Results" MODIFIED="1576659105177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$str2int.coverage" NAME="str2int Coverage Results" MODIFIED="1577182900066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit_2.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit_2 Coverage Results" MODIFIED="1576669969552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$server.coverage" NAME="server Coverage Results" MODIFIED="1576903857434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
     <SUITE FILE_PATH="coverage/reader$Unittests_in_P632_py.coverage" NAME="Unittests in P632.py Coverage Results" MODIFIED="1576385748386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
-    <SUITE FILE_PATH="coverage/reader$C628.coverage" NAME="C628 Coverage Results" MODIFIED="1576143155390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
-    <SUITE FILE_PATH="coverage/reader$fibonacci.coverage" NAME="fibonacci Coverage Results" MODIFIED="1577021375960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit_1.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit_1 Coverage Results" MODIFIED="1576669709780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$29.coverage" NAME="29 Coverage Results" MODIFIED="1576487201251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$binarySearch.coverage" NAME="binarySearch Coverage Results" MODIFIED="1576991941030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
-    <SUITE FILE_PATH="coverage/reader$CreditCardInherit.coverage" NAME="CreditCardInherit Coverage Results" MODIFIED="1576648546690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$factorial.coverage" NAME="factorial Coverage Results" MODIFIED="1576984277791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex3" />
-    <SUITE FILE_PATH="coverage/reader$unique3.coverage" NAME="unique3 Coverage Results" MODIFIED="1577017642510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$unique3.coverage" NAME="unique3 Coverage Results" MODIFIED="1577249362805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_1.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_1 Coverage Results" MODIFIED="1576720058417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$Unittests_for_Vector_TestVertor.coverage" NAME="Unittests for Vector.TestVertor Coverage Results" MODIFIED="1576407153354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$client_01.coverage" NAME="client_01 Coverage Results" MODIFIED="1576900837787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2/AliceBob" />
     <SUITE FILE_PATH="coverage/reader$Progression.coverage" NAME="Progression Coverage Results" MODIFIED="1576484659485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_4.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_4 Coverage Results" MODIFIED="1576719500607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Unittests_in_P635_py.coverage" NAME="Unittests in P635.py Coverage Results" MODIFIED="1576385772394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
     <SUITE FILE_PATH="coverage/reader$linear_sum.coverage" NAME="linear_sum Coverage Results" MODIFIED="1577070602972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
-    <SUITE FILE_PATH="coverage/reader$Unittests_for_Vector_TestVertor_test_sub.coverage" NAME="Unittests for Vector.TestVertor.test_sub Coverage Results" MODIFIED="1576566086149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$Unittests_in_Vector_py.coverage" NAME="Unittests in Vector.py Coverage Results" MODIFIED="1576639830687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Range.coverage" NAME="Range Coverage Results" MODIFIED="1576641359580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$AbcExample.coverage" NAME="AbcExample Coverage Results" MODIFIED="1576728530416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$inSequenceFind.coverage" NAME="inSequenceFind Coverage Results" MODIFIED="1577264438978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$abc.coverage" NAME="abc Coverage Results" MODIFIED="1576636223091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Unittests_in_Polynomial_py.coverage" NAME="Unittests in Polynomial.py Coverage Results" MODIFIED="1576728536571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$diskUsage.coverage" NAME="diskUsage Coverage Results" MODIFIED="1577360388989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$reverse.coverage" NAME="reverse Coverage Results" MODIFIED="1577072073901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$P423.coverage" NAME="P423 Coverage Results" MODIFIED="1577359927284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$binaryCalc.coverage" NAME="binaryCalc Coverage Results" MODIFIED="1577268963943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$Vector.coverage" NAME="Vector Coverage Results" MODIFIED="1576408267262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_CreditCard_py.coverage" NAME="Unittests in CreditCard.py Coverage Results" MODIFIED="1576651307828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$findMax.coverage" NAME="findMax Coverage Results" MODIFIED="1577251866559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$27.coverage" NAME="27 Coverage Results" MODIFIED="1576483128125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_3.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_3 Coverage Results" MODIFIED="1576720077428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$binarySum.coverage" NAME="binarySum Coverage Results" MODIFIED="1577084043298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$sequenceCalc.coverage" NAME="sequenceCalc Coverage Results" MODIFIED="1577353439597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$C629.coverage" NAME="C629 Coverage Results" MODIFIED="1576209301706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$ProgressionInherit.coverage" NAME="ProgressionInherit Coverage Results" MODIFIED="1576659105177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$str2int.coverage" NAME="str2int Coverage Results" MODIFIED="1577182900066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$C628.coverage" NAME="C628 Coverage Results" MODIFIED="1576143155390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex6" />
+    <SUITE FILE_PATH="coverage/reader$fibonacci.coverage" NAME="fibonacci Coverage Results" MODIFIED="1577021375960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$CreditCardInherit.coverage" NAME="CreditCardInherit Coverage Results" MODIFIED="1576648546690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$linkedStack.coverage" NAME="linkedStack Coverage Results" MODIFIED="1577438211683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex7" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Vector_TestVertor.coverage" NAME="Unittests for Vector.TestVertor Coverage Results" MODIFIED="1576407153354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_derivation_4.coverage" NAME="Unittests for Polynomial.TestPoly.test_derivation_4 Coverage Results" MODIFIED="1576719500607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$linkedADT.coverage" NAME="linkedADT Coverage Results" MODIFIED="1577689072610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex7" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_for_Vector_TestVertor_test_sub.coverage" NAME="Unittests for Vector.TestVertor.test_sub Coverage Results" MODIFIED="1576566086149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
+    <SUITE FILE_PATH="coverage/reader$Unittests_in_Vector_py.coverage" NAME="Unittests in Vector.py Coverage Results" MODIFIED="1576639830687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$ruler.coverage" NAME="ruler Coverage Results" MODIFIED="1576990391671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex3" />
-    <SUITE FILE_PATH="coverage/reader$diskUsage.coverage" NAME="diskUsage Coverage Results" MODIFIED="1576997673323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$sumFun.coverage" NAME="sumFun Coverage Results" MODIFIED="1577188888284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
+    <SUITE FILE_PATH="coverage/reader$logDiv.coverage" NAME="logDiv Coverage Results" MODIFIED="1577250395018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$harmonicSeries.coverage" NAME="harmonicSeries Coverage Results" MODIFIED="1577173925431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
     <SUITE FILE_PATH="coverage/reader$CreditCard.coverage" NAME="CreditCard Coverage Results" MODIFIED="1576565796473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Sequence.coverage" NAME="Sequence Coverage Results" MODIFIED="1576639820376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
     <SUITE FILE_PATH="coverage/reader$Unittests_for_Polynomial_TestPoly_test_strsplit.coverage" NAME="Unittests for Polynomial.TestPoly.test_strsplit Coverage Results" MODIFIED="1576669569422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex2" />
-    <SUITE FILE_PATH="coverage/reader$reverse.coverage" NAME="reverse Coverage Results" MODIFIED="1577072073901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataStructures/ex4" />
   </component>
 </project>

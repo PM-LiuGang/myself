@@ -13,4 +13,4 @@ def disk_usage(path):
     return total
 
 if __name__ == '__main__':
-    disk_usage(r'C:\Users\admin\Desktop\myself\reader\DataStructures\ex4')
+    disk_usage(r'C:\Users\admin\Desktop\myself\reader\DataStructures')

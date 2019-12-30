@@ -26,9 +26,20 @@ def power_2(x, n):
             result *= x
         return result
 
+#C422
+def power_3(n):
+# def power_3(n, x=2): 错误写法
+    x = 2
+    for i in range(n - 1):
+        x *= 2
+    print(x)
+
 if __name__ == '__main__':
-    print(power_(2, 5))
-    print(power_1(2, 5))
-    print(power_1(2, 6))
-    print(power_2(2,5))
-    print(power_2(2, 6))
+    # print(power_(2, 5))
+    # print(power_1(2, 5))
+    # print(power_1(2, 6))
+    # print(power_2(2,5))
+    # print(power_2(2, 6))
+    print('{0:-<20}'.format('#C422'))
+    power_3(5)
+    power_3(10)
