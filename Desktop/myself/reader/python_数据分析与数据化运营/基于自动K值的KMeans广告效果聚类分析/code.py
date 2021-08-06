@@ -3,7 +3,7 @@
 描述：
 创建时间：Wed Jan  2 20:51:38 2019
 作者: PM.LiuGang
-Review:
+Review:20200328
 遗留：
 """
 
@@ -19,7 +19,7 @@ from sklearn import metrics
 rawData = pd.read_csv('ad_performance.txt', delimiter='\t')
 
 print('{:*^60}'.format('Data overview:'))
-print(rawData.head(2))
+print(rawData.head())
 
 print('{:*^60}'.format('Data dtypes:'))
 print((rawData.dtypes).T)
